@@ -2,8 +2,6 @@ from board import *
 
 
 """Returns true if the string contains only numberical character"""
-
-
 def is_a_number(string):
     try:
         int(string)
@@ -14,8 +12,6 @@ def is_a_number(string):
 
 """Prompts the user until they enter a whole number, returns this as
  an integer"""
-
-
 def input_whole_num(prompt="", invalid_msg="", excepts=[]):
     num_entered = False
     while (not num_entered):
@@ -30,8 +26,6 @@ def input_whole_num(prompt="", invalid_msg="", excepts=[]):
 
 
 """Prompts the current player for valid move coords, returns grid indeces"""
-
-
 def move_prompt(board):
     valid_move = False
     print("\nIt is " + board.turn + "'s turn.\n")
