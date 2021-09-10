@@ -3,6 +3,9 @@ class coord:
         self.row = r
         self.column = c
 
+    def __eq__(self, other):
+        return (self.row == other.row) and (self.column == other.column)
+
 class board:
     def __init__(self):
 
@@ -56,7 +59,7 @@ class board:
 
 
     """Outputs an ASCII representation of the grid to the console"""
-    def print_grid(self):
+    def as_string(self):
         output = "   A B C D E F G H J K L M N O P Q R S T   \n"
         for i in range(19, 0, -1):
             output += self.double_digit_fill_right(i) + " "
@@ -64,7 +67,7 @@ class board:
                 output += self.display_chars[c] + " "
             output += self.double_digit_fill_left(i) + "\n"
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
-        print(output)
+        return output
 
     """Removes duplicate entries from a list"""
     def remove_duplicates(self, lst):
@@ -84,7 +87,7 @@ class board:
     """Returns true if a given move is valid; otherwise, returns a
      string explaining why it is invalid"""
     def is_valid_move(self, coord):
-        if ((1 <= coord.row <= 19) and (1 <= coord.row <= 19)):
+        if ((0 <= coord.row <= 18) and (0 <= coord.row <= 18)):
             if (self.get_contents(coord) == None):
                 return True
             else:
@@ -105,7 +108,7 @@ class board:
         valid_neighbours = []
         for i in range(4):
             if ((0 <= neighbours[i].row <= 18) and
-                     (0 <= neighbours[i].row <= 18)):
+                     (0 <= neighbours[i].column <= 18)):
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
 
@@ -121,7 +124,6 @@ class board:
         while (not done):
             neighbours = self.get_neighbours(current)
             for i in neighbours:
-                print(self.get_contents(i))
                 if (self.get_contents(i) == colour):
                     if (not (i in chain)):
                         to_check += [i]
@@ -158,11 +160,11 @@ class board:
      any necessary captures"""
     def place_stone(self, coord, colour):
         self.set_contents(coord, colour)
-        neighbours = self.get_neighbours(coord)
-        for i in neighbours:
+        affected_stones = self.get_neighbours(coord)
+        affected_stones += [coord]
+        for i in affected_stones:
             if (self.get_contents(i) != None):
                 chain = self.get_chain(i)
-                print(chain)
                 libs = self.get_liberties(chain)
                 if (libs == 0):
                     self.capture(chain)

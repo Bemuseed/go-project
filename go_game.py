@@ -39,29 +39,28 @@ def move_prompt(board):
         col = input_whole_num("Enter column for stone:  ",
                               "Coords must be numbers\n")
 
+        row -= 1
+        col -= 1
         coordinate = coord(row, col)
         val = board.is_valid_move(coordinate)
         if (val == True):
             valid_move = True
         else:
             print(val)
-
-    coordinate.row -= 1
-    coordinate.column -= 1
     return coordinate
 
 
 def main():
     b = board()
     while (b.g_over != True):
-        b.print_grid()
+        print(b.as_string())
         coord = move_prompt(b)
         if (coord.row == -1):
             b.pass_turn()
         else:
             b.make_move(coord)
 
-        b.print_grid()
+        print(b.as_string())
 
 
 main()
