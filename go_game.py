@@ -1,7 +1,6 @@
 from board import *
 
 
-"""Returns true if the string contains only numberical character"""
 def is_a_number(string):
     try:
         int(string)
@@ -10,8 +9,6 @@ def is_a_number(string):
         return False
 
 
-"""Prompts the user until they enter a whole number, returns this as
- an integer"""
 def input_whole_num(prompt="", invalid_msg="", excepts=[]):
     num_entered = False
     while (not num_entered):
@@ -25,7 +22,6 @@ def input_whole_num(prompt="", invalid_msg="", excepts=[]):
     return int(inp_str)
 
 
-"""Prompts the current player for valid move coords, returns grid indeces"""
 def move_prompt(board):
     valid_move = False
     print("\nIt is " + board.turn + "'s turn.\n")
@@ -39,29 +35,28 @@ def move_prompt(board):
         col = input_whole_num("Enter column for stone:  ",
                               "Coords must be numbers\n")
 
+        row -= 1
+        col -= 1
         coordinate = coord(row, col)
         val = board.is_valid_move(coordinate)
         if (val == True):
             valid_move = True
         else:
             print(val)
-
-    coordinate.row -= 1
-    coordinate.column -= 1
     return coordinate
 
 
 def main():
     b = board()
     while (b.g_over != True):
-        b.print_grid()
+        print(b.as_string())
         coord = move_prompt(b)
         if (coord.row == -1):
             b.pass_turn()
         else:
             b.make_move(coord)
 
-        b.print_grid()
+        print(b.as_string())
 
 
 main()

@@ -3,6 +3,9 @@ class coord:
         self.row = r
         self.column = c
 
+    def __eq__(self, other):
+        return (self.row == other.row) and (self.column == other.column)
+
 class board:
     def __init__(self):
 
@@ -22,21 +25,15 @@ class board:
             "b": "X",
             "w": "O" }
 
-    """Returns the value at the intersection on the grid specificied
-     by the given coordinate"""
-    def get_contents(self, coord):
-        r = coord.row
-        c = coord.column
-        return self.grid[r][c]
 
-    """Sets the value at the intersection at the given coordinate to
-     the given value"""
-    def set_contents(self, coord, value):
-        r = coord.row
-        c = coord.column
-        self.grid[r][c] = value
+    def get_contents(self, crd):
+        return self.grid[crd.row][crd.column]
 
-    """If a number has one digit, inserts a space in front of it"""
+
+    def set_contents(self, crd, value):
+        self.grid[crd.row][crd.column] = value
+
+
     def double_digit_fill_left(self, number)->str:
         if (int(number) >= 10):
             return str(number)
@@ -45,7 +42,7 @@ class board:
         else:
             return " " + str(number)
 
-    """If a number has one digit, appends a space after it"""
+
     def double_digit_fill_right(self, number)->str:
         if (int(number) >= 10):
             return str(number)
@@ -55,8 +52,8 @@ class board:
             return str(number) + " "
 
 
-    """Outputs an ASCII representation of the grid to the console"""
-    def print_grid(self):
+
+    def as_string(self):
         output = "   A B C D E F G H J K L M N O P Q R S T   \n"
         for i in range(19, 0, -1):
             output += self.double_digit_fill_right(i) + " "
@@ -64,9 +61,9 @@ class board:
                 output += self.display_chars[c] + " "
             output += self.double_digit_fill_left(i) + "\n"
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
-        print(output)
+        return output
 
-    """Removes duplicate entries from a list"""
+
     def remove_duplicates(self, lst):
         unique_lst = []
         for i in lst:
@@ -74,17 +71,16 @@ class board:
                 unique_lst += [i]
         return unique_lst
 
-    """Returns the character for the other player"""
+
     def other_player(self, player):
         if (player == "b"):
             return "w"
         else:
             return "b"
 
-    """Returns true if a given move is valid; otherwise, returns a
-     string explaining why it is invalid"""
+
     def is_valid_move(self, coord):
-        if ((1 <= coord.row <= 19) and (1 <= coord.row <= 19)):
+        if ((0 <= coord.row <= 18) and (0 <= coord.row <= 18)):
             if (self.get_contents(coord) == None):
                 return True
             else:
@@ -92,8 +88,7 @@ class board:
         else:
             return "Coords must be within the grid"
 
-    """Returns the coords of the surrounding points of the given point
-     in a list of four lists"""
+
     def get_neighbours(self, crd):
         r = crd.row
         c = crd.column
@@ -105,12 +100,11 @@ class board:
         valid_neighbours = []
         for i in range(4):
             if ((0 <= neighbours[i].row <= 18) and
-                     (0 <= neighbours[i].row <= 18)):
+                     (0 <= neighbours[i].column <= 18)):
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
 
-    """Returns a list of coordinates of stones with strict connection to
-     the given stone"""
+
     def get_chain(self, coord):
         chain = [coord]
         current = coord
@@ -121,7 +115,6 @@ class board:
         while (not done):
             neighbours = self.get_neighbours(current)
             for i in neighbours:
-                print(self.get_contents(i))
                 if (self.get_contents(i) == colour):
                     if (not (i in chain)):
                         to_check += [i]
@@ -133,49 +126,39 @@ class board:
                 del to_check[0]
         return chain
 
-    """Returns the total liberties of the given list of stones"""
-    def get_liberties(self, coord_list):
-        empty_point_list = []
-        colour = self.get_contents(coord_list[0])
-        for i in coord_list:
 
-            if (self.get_contents(i) != colour):
-                raise RuntimeError()
+    def has_liberties(self, chain):
+        for stone in chain:
+            neighbours = self.get_neighbours(stone)
+            for n in neighbours:
+                if (self.get_contents(n) == None):
+                    return True
+        return False
 
-            neighbours = self.get_neighbours(i)
-            for j in neighbours:
-                if (self.get_contents(j) == None):
-                    empty_point_list += [j]
-        empty_point_list = self.remove_duplicates(empty_point_list)
-        return len(empty_point_list)
 
-    """Removes the given list of stones from the board"""
     def capture(self, chain):
         for stone in chain:
             self.set_contents(stone, None)
 
-    """Adds a stone to the board at the given coords, and makes
-     any necessary captures"""
-    def place_stone(self, coord, colour):
-        self.set_contents(coord, colour)
-        neighbours = self.get_neighbours(coord)
-        for i in neighbours:
-            if (self.get_contents(i) != None):
-                chain = self.get_chain(i)
-                print(chain)
-                libs = self.get_liberties(chain)
-                if (libs == 0):
-                    self.capture(chain)
+    def capture_if_without_liberties(self, crd):
+        if (self.get_contents(crd) != None):
+            chain = self.get_chain(crd)
+            if not (self.has_liberties(chain)):
+                self.capture(chain)
 
-    """Passes play onto the next player"""
+    def place_stone(self, placed, colour):
+        self.set_contents(placed, colour)
+        affected_stones = self.get_neighbours(placed)
+        affected_stones += [placed]
+        for s in affected_stones:
+            self.capture_if_without_liberties(s)
+
     def next_turn(self):
         self.turn = self.other_player(self.turn)
 
-    """Enacts the given valid move and passes play to the next player"""
     def make_move(self, move_coord):
         self.place_stone(move_coord, self.turn)
         self.next_turn()
 
-    """Passes play onto the next player"""
     def pass_turn(self):
         self.next_turn()
