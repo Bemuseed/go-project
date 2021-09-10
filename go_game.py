@@ -25,21 +25,21 @@ def input_whole_num(prompt="", invalid_msg="", excepts=[]):
 def move_prompt(board):
     valid_move = False
     print("\nIt is " + board.turn + "'s turn.\n")
-    while (valid_move == False):
+    while valid_move is False:
         row = input_whole_num("Enter row for stone:  ",
                               "Coords must be numbers\n", ["p", "pass"])
 
         if (row == -1):
-            return coord(-1, -1)
+            return Coord(-1, -1)
 
         col = input_whole_num("Enter column for stone:  ",
                               "Coords must be numbers\n")
 
         row -= 1
         col -= 1
-        coordinate = coord(row, col)
+        coordinate = Coord(row, col)
         val = board.is_valid_move(coordinate)
-        if (val == True):
+        if val is True:
             valid_move = True
         else:
             print(val)
@@ -47,8 +47,8 @@ def move_prompt(board):
 
 
 def main():
-    b = board()
-    while (b.g_over != True):
+    b = Board()
+    while b.g_over is not True:
         print(b.as_string())
         coord = move_prompt(b)
         if (coord.row == -1):
