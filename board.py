@@ -52,7 +52,11 @@ class board:
             return str(number) + " "
 
 
+<<<<<<< HEAD
 
+=======
+    """Outputs an ASCII representation of the grid to the console"""
+>>>>>>> 2e87177213b7f3725c433421f9c9d66e078e9e95
     def as_string(self):
         output = "   A B C D E F G H J K L M N O P Q R S T   \n"
         for i in range(19, 0, -1):
@@ -62,7 +66,10 @@ class board:
             output += self.double_digit_fill_left(i) + "\n"
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
         return output
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2e87177213b7f3725c433421f9c9d66e078e9e95
 
     def remove_duplicates(self, lst):
         unique_lst = []
@@ -140,6 +147,7 @@ class board:
         for stone in chain:
             self.set_contents(stone, None)
 
+<<<<<<< HEAD
     def capture_if_without_liberties(self, crd):
         if (self.get_contents(crd) != None):
             chain = self.get_chain(crd)
@@ -153,6 +161,22 @@ class board:
         for s in affected_stones:
             self.capture_if_without_liberties(s)
 
+=======
+    """Adds a stone to the board at the given coords, and makes
+     any necessary captures"""
+    def place_stone(self, coord, colour):
+        self.set_contents(coord, colour)
+        affected_stones = self.get_neighbours(coord)
+        affected_stones += [coord]
+        for i in affected_stones:
+            if (self.get_contents(i) != None):
+                chain = self.get_chain(i)
+                libs = self.get_liberties(chain)
+                if (libs == 0):
+                    self.capture(chain)
+
+    """Passes play onto the next player"""
+>>>>>>> 2e87177213b7f3725c433421f9c9d66e078e9e95
     def next_turn(self):
         self.turn = self.other_player(self.turn)
 
