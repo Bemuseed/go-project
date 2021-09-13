@@ -17,9 +17,9 @@ def double_digit_fill_left(number) -> str:
 
 
 def double_digit_fill_right(number) -> str:
-    if (int(number) >= 10):
+    if int(number) >= 10:
         return str(number)
-    elif (int(number) >= 100):
+    elif int(number) >= 100:
         raise RuntimeError()
     else:
         return str(number) + " "
@@ -28,7 +28,7 @@ def double_digit_fill_right(number) -> str:
 def remove_duplicates(lst):
     unique_lst = []
     for i in lst:
-        if (not (i in unique_lst)):
+        if not (i in unique_lst):
             unique_lst += [i]
     return unique_lst
 
@@ -71,19 +71,19 @@ class Board:
         return output
 
     def other_player(self, player):
-        if (player == "b"):
+        if player == "b":
             return "w"
         else:
             return "b"
 
     def is_valid_move(self, coord):
-        if ((0 <= coord.row <= 18) and (0 <= coord.row <= 18)):
-            if (self.get_contents(coord) is None):
+        if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
+            if self.get_contents(coord) is None:
                 return True
             else:
                 return "Stones cannot be placed on other stones"
         else:
-            return "Coords must be within the grid"
+            return "Coordinates must be within the grid"
 
     def get_neighbours(self, crd):
         r = crd.row
@@ -107,14 +107,14 @@ class Board:
         colour = self.get_contents(coord)
 
         done = False
-        while (not done):
+        while not done:
             neighbours = self.get_neighbours(current)
             for i in neighbours:
-                if (self.get_contents(i) == colour):
-                    if (not (i in chain)):
+                if self.get_contents(i) == colour:
+                    if not (i in chain):
                         to_check += [i]
                         chain += [i]
-            if (to_check == []):
+            if not to_check:
                 done = True
             else:
                 current = to_check[0]
@@ -125,7 +125,7 @@ class Board:
         for stone in chain:
             neighbours = self.get_neighbours(stone)
             for n in neighbours:
-                if (self.get_contents(n) is None):
+                if self.get_contents(n) is None:
                     return True
         return False
 
@@ -134,7 +134,7 @@ class Board:
             self.set_contents(stone, None)
 
     def capture_if_without_liberties(self, crd):
-        if (self.get_contents(crd) is not None):
+        if self.get_contents(crd) is not None:
             chain = self.get_chain(crd)
             if not (self.has_liberties(chain)):
                 self.capture(chain)
