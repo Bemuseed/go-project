@@ -41,7 +41,7 @@ def move_prompt(board):
 
         coordinate.row = row - 1
         coordinate.column = col - 1
-        val = board.is_valid_move(coordinate)
+        val = board._is_valid_move(coordinate)
         if val is True:
             valid_move = True
         else:
