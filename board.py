@@ -6,6 +6,9 @@ class Coord:
     def __eq__(self, other):
         return (self.row == other.row) and (self.column == other.column)
 
+    def __str__(self):
+        return "[" + str(self.row) + ", " + str(self.column) + "]"
+
 
 def double_digit_fill_left(number) -> str:
     if int(number) >= 10:
@@ -36,36 +39,46 @@ def remove_duplicates(lst):
 class Board:
     def __init__(self):
 
-        self.grid = []
+        self._grid = []
         for i in range(19):
             row = []
             for j in range(19):
                 row += [None]
-            self.grid += [row]
+            self._grid += [row]
 
-        self.turn = "b"
-        self.winner = ""
-        self.g_over = False
+        self._turn = "b"
+        self._winner = ""
+        self._g_over = False
 
-        self.display_chars = {
+        self._display_chars = {
             None: ".",
             "b": "X",
             "w": "O"}
 
+    @property
+    def turn(self):
+        return self._turn
+
+    @property
+    def winner(self):
+        return self._winner
+
+    @property
+    def g_over(self):
+        return self._g_over
+
     def _get_contents(self, crd):
-        return self.grid[crd.row][crd.column]
+        return self._grid[crd.row][crd.column]
 
     def _set_contents(self, crd, value):
-        self.grid[crd.row][crd.column] = value
-
-    """Outputs an ASCII representation of the grid to the console"""
+        self._grid[crd.row][crd.column] = value
 
     def as_string(self):
         output = "   A B C D E F G H J K L M N O P Q R S T   \n"
         for i in range(19, 0, -1):
             output += double_digit_fill_right(i) + " "
-            for c in self.grid[i - 1]:
-                output += self.display_chars[c] + " "
+            for c in self._grid[i - 1]:
+                output += self._display_chars[c] + " "
             output += double_digit_fill_left(i) + "\n"
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
         return output
@@ -76,14 +89,14 @@ class Board:
         else:
             return "b"
 
-    def _is_valid_move(self, coord):
+    def _is_legal_move(self, coord):
         if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
             if self._get_contents(coord) is None:
-                return True
+                return True, ""
             else:
-                return "Stones cannot be placed on other stones"
+                return False, "Stones cannot be placed on other stones"
         else:
-            return "Coordinates must be within the grid"
+            return False, "Coordinates must be within the grid"
 
     def _get_neighbours(self, crd):
         r = crd.row
@@ -147,10 +160,20 @@ class Board:
             self._capture_if_without_liberties(s)
 
     def _next_turn(self):
-        self.turn = self._other_player(self.turn)
+        self._turn = self._other_player(self._turn)
+
+    def get_illegal_moves(self):
+        illegal_moves = []
+        for row in range(len(self._grid)):
+            for col in range(len(self._grid)):
+                current_point = Coord(row, col)
+                legal, reason = self._is_legal_move(current_point)
+                if not legal:
+                    illegal_moves += [[current_point, reason]]
+        return illegal_moves
 
     def make_move(self, move_coord):
-        self._place_stone(move_coord, self.turn)
+        self._place_stone(move_coord, self._turn)
         self._next_turn()
 
     def pass_turn(self):
