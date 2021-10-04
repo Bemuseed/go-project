@@ -83,21 +83,6 @@ class Board:
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
         return output
 
-    def _other_player(self, player):
-        if player == "b":
-            return "w"
-        else:
-            return "b"
-
-    def _is_legal_move(self, coord):
-        if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
-            if self._get_contents(coord) is None:
-                return True, ""
-            else:
-                return False, "Stones cannot be placed on other stones"
-        else:
-            return False, "Coordinates must be within the grid"
-
     def _get_neighbours(self, crd):
         r = crd.row
         c = crd.column
@@ -112,6 +97,12 @@ class Board:
                     (0 <= neighbours[i].column <= 18)):
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
+
+    def _other_player(self, player):
+        if player == "b":
+            return "w"
+        else:
+            return "b"
 
     def _get_chain(self, coord):
         chain = [coord]
@@ -162,15 +153,14 @@ class Board:
     def _next_turn(self):
         self._turn = self._other_player(self._turn)
 
-    def get_illegal_moves(self):
-        illegal_moves = []
-        for row in range(len(self._grid)):
-            for col in range(len(self._grid)):
-                current_point = Coord(row, col)
-                legal, reason = self._is_legal_move(current_point)
-                if not legal:
-                    illegal_moves += [[current_point, reason]]
-        return illegal_moves
+    def is_legal_move(self, coord):
+        if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
+            if self._get_contents(coord) is None:
+                return True, ""
+            else:
+                return False, "Stones cannot be placed on other stones"
+        else:
+            return False, "Coordinates must be within the grid"
 
     def make_move(self, move_coord):
         self._place_stone(move_coord, self._turn)
