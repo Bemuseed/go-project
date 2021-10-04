@@ -1,65 +1,77 @@
-from board import *
+import board
 
 
-def is_a_number(string):
-    try:
-        int(string)
-        return True
-    except:
-        return False
-
-
-def input_whole_num(prompt="", invalid_msg="", excepts=None):
-    if excepts is None:
-        excepts = []
-    inp_str = ""
-    num_entered = False
-    while not num_entered:
-        inp_str = input(prompt)
-        if is_a_number(inp_str):
-            num_entered = True
-        elif inp_str.lower() in excepts:
-            return -1
+class GoGame:
+    
+    def __init__(self):
+        self.b = board.Board()
+        
+    def is_a_number(self, string):
+        try:
+            int(string)
+            return True
+        except ValueError:
+            return False
+    
+    def alpha_to_column_number(self, alpha):
+        order_in_alphabet = ord(alpha) - (ord('a') - 1)
+        if ord(alpha) >= ord('i'):
+            order_in_alphabet -= 1
+        return order_in_alphabet
+    
+    def is_valid_coord(self, move_string):
+        alpha = move_string[0].lower()
+        if ord('a') <= ord(alpha) <= ord('t') and alpha != 'i':
+            if self.is_a_number(move_string[1:]):
+                return True
+    
+    def is_pass(self, move_string):
+        move_string = move_string.lower()
+        if move_string == "p" or move_string == "pass":
+            return True
         else:
-            print(invalid_msg, end="")
-    return int(inp_str)
+            return False
+    
+    def get_valid_move(self):
+        valid_coord = False
+        row, col = 0, 0
+        pass_move = False
+        while not valid_coord:
+            move = input("Enter move: ")
+            valid_coord = self.is_valid_coord(move)
+            if not valid_coord:
+                if self.is_pass(move):
+                    valid_coord = True
+                    pass_move = True
+                else:
+                    print("Invalid coordinate.")
+            else:
+                col = self.alpha_to_column_number(move[0].lower())
+                row = int(move[1:])
+        return board.Coord(row-1, col-1), pass_move
+    
+    def perform_legal_move(self):
+        move_complete = False
+        coordinate = board.Coord(1, 1)
+        print("\nIt is " + self.b.turn + "'s turn.\n")
+        while not move_complete:
+            coordinate, pass_move = self.get_valid_move()
+            legal, reason = self.b.is_legal_move(coordinate)
+            if legal:
+                self.b.make_move(coordinate)
+                move_complete = True
+            elif pass_move:
+                self.b.pass_turn()
+                move_complete = True
+            else:
+                print(reason)
+        return coordinate
+    
+    def play(self):
+        while self.b.g_over is not True:
+            print(self.b.as_string())
+            coord = self.perform_legal_move()
+            print(self.b.as_string())
 
-
-def move_prompt(board):
-    valid_move = False
-    coordinate = Coord(1, 1)
-    print("\nIt is " + board.turn + "'s turn.\n")
-    while valid_move is False:
-        row = input_whole_num("Enter row for stone:  ",
-                              "Coords must be numbers\n", ["p", "pass"])
-
-        if row == -1:
-            return Coord(-1, -1)
-
-        col = input_whole_num("Enter column for stone:  ",
-                              "Coords must be numbers\n")
-
-        coordinate.row = row - 1
-        coordinate.column = col - 1
-        val = board._is_valid_move(coordinate)
-        if val is True:
-            valid_move = True
-        else:
-            print(val)
-    return coordinate
-
-
-def main():
-    b = Board()
-    while b.g_over is not True:
-        print(b.as_string())
-        coord = move_prompt(b)
-        if coord.row == -1:
-            b.pass_turn()
-        else:
-            b.make_move(coord)
-
-        print(b.as_string())
-
-
-main()
+g = GoGame()
+g.play()
