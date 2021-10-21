@@ -1,3 +1,6 @@
+import copy
+
+
 class Coord:
     def __init__(self, r, c):
         self.row = r
@@ -153,10 +156,21 @@ class Board:
     def _next_turn(self):
         self._turn = self._other_player(self._turn)
 
+    def _is_suicide(self, coord):
+        test_board = copy.deepcopy(self)
+        test_board.make_move(coord)
+        if test_board._get_contents(coord) is None:
+            return True
+        else:
+            return False
+
     def is_legal_move(self, coord):
         if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
             if self._get_contents(coord) is None:
-                return True, ""
+                if not self._is_suicide(coord):
+                    return True, ""
+                else:
+                    return False, "Move results in suicide"
             else:
                 return False, "Stones cannot be placed on other stones"
         else:
