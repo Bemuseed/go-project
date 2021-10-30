@@ -38,16 +38,19 @@ class GoGame:
         pass_move = False
         while not valid_coord:
             move = input("Enter move: ")
-            valid_coord = self.is_valid_coord(move)
-            if not valid_coord:
-                if self.is_pass(move):
-                    valid_coord = True
-                    pass_move = True
+            if len(move) > 0:
+                valid_coord = self.is_valid_coord(move)
+                if not valid_coord:
+                    if self.is_pass(move):
+                        valid_coord = True
+                        pass_move = True
+                    else:
+                        print("Invalid coordinate.")
                 else:
-                    print("Invalid coordinate.")
+                    col = self.alpha_to_column_number(move[0].lower())
+                    row = int(move[1:])
             else:
-                col = self.alpha_to_column_number(move[0].lower())
-                row = int(move[1:])
+                print("Please enter a valid coordinate.")
         return board.Coord(row-1, col-1), pass_move
     
     def perform_legal_move(self):
@@ -71,6 +74,11 @@ class GoGame:
         while self.b.g_over is not True:
             print(self.b.as_string())
             coord = self.perform_legal_move()
+        print("\n" + self.b.as_string() + "\n")
+        winning_score = max(self.b.white_score, self.b.black_score)
+        losing_score = min(self.b.white_score, self.b.black_score)
+        print(self.b.winner, "has won, with", winning_score, "to", losing_score)
+
 
 g = GoGame()
 g.play()
