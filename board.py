@@ -53,6 +53,10 @@ class Board:
         self._winner = ""
         self._g_over = False
 
+        self._consecutive_passes = 0
+        self._white_captures = 0
+        self._black_captures = 0
+
         self._display_chars = {
             None: ".",
             "b": "X",
@@ -140,6 +144,10 @@ class Board:
 
     def _capture(self, chain):
         for stone in chain:
+            if self._get_contents(stone) == "w":
+                self._black_captures += 1
+            else:
+                self._white_captures += 1
             self._set_contents(stone, None)
 
     def _capture_if_without_liberties(self, crd):
@@ -193,6 +201,8 @@ class Board:
         self._place_stone(move_coord, self._turn)
         self._next_turn()
         self.position_history.append(copy.deepcopy(self._grid))
+        self._consecutive_passes = 0
 
     def pass_turn(self):
+        self._consecutive_passes += 1
         self._next_turn()

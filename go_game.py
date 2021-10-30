@@ -71,7 +71,6 @@ class GoGame:
         while self.b.g_over is not True:
             print(self.b.as_string())
             coord = self.perform_legal_move()
-            print(self.b.as_string())
 
 g = GoGame()
 g.play()
