@@ -166,11 +166,22 @@ class Board:
         else:
             return False
 
+    def _is_superko(self, coord):
+        test_board = copy.deepcopy(self)
+        test_board.make_move(coord)
+        if len(self.position_history) > 2 and test_board._grid in self.position_history:
+            return True
+        else:
+            return False
+
     def is_legal_move(self, coord):
         if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
             if self._get_contents(coord) is None:
                 if not self._is_suicide(coord):
-                    return True, ""
+                    if not self._is_superko(coord):
+                        return True, ""
+                    else:
+                        return False, "Repeats last board position"
                 else:
                     return False, "Move results in suicide"
             else:
