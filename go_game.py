@@ -1,15 +1,16 @@
-import board
+from board import Board
 import player
+
 
 class GoGame:
     
     def __init__(self, player_a: player.Player, player_b: player.Player):
-        self.board = board.Board()
+        self.board = Board()
         self.player_a = player_a
         self.player_b = player_b
         self.current_player = self.player_a
 
-    def next_player(self, player):
+    def next_player(self):
         if self.current_player == self.player_a:
             self.current_player = self.player_b
         else:

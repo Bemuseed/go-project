@@ -107,7 +107,8 @@ class Board:
         output += "   A B C D E F G H J K L M N O P Q R S T   \n"
         return output
 
-    def _get_neighbours(self, crd):
+    @staticmethod
+    def _get_neighbours(crd):
         r = crd.row
         c = crd.column
 
@@ -122,7 +123,8 @@ class Board:
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
 
-    def _other_player(self, player):
+    @staticmethod
+    def _other_player(player):
         if player == "b":
             return "w"
         else:
@@ -234,8 +236,6 @@ class Board:
             elif ownership == "w":
                 w_terr += len(c)
         return b_terr, w_terr
-
-
 
     def _end_game(self):
         self._turn = ""
