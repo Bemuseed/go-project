@@ -58,7 +58,7 @@ class Board:
             "b": "X",
             "w": "O"}
 
-        self.history = [copy.deepcopy(self)]
+        self.position_history = [copy.deepcopy(self._grid)]
 
     @property
     def turn(self):
@@ -181,7 +181,7 @@ class Board:
     def make_move(self, move_coord):
         self._place_stone(move_coord, self._turn)
         self._next_turn()
-        self.history.append(copy.deepcopy(self))
+        self.position_history.append(copy.deepcopy(self._grid))
 
     def pass_turn(self):
         self._next_turn()
