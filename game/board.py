@@ -12,25 +12,6 @@ class Coord:
     def __str__(self):
         return "[" + str(self.row) + ", " + str(self.column) + "]"
 
-
-def double_digit_fill_left(number) -> str:
-    if int(number) >= 10:
-        return str(number)
-    elif int(number) >= 100:
-        raise RuntimeError()
-    else:
-        return " " + str(number)
-
-
-def double_digit_fill_right(number) -> str:
-    if int(number) >= 10:
-        return str(number)
-    elif int(number) >= 100:
-        raise RuntimeError()
-    else:
-        return str(number) + " "
-
-
 def remove_duplicates(lst):
     unique_lst = []
     for i in lst:
@@ -40,12 +21,13 @@ def remove_duplicates(lst):
 
 
 class Board:
-    def __init__(self, komi=6.5):
+    def __init__(self, komi=6.5, size=19):
 
+        self.size = size
         self._grid = []
-        for i in range(19):
+        for i in range(self.size):
             row = []
-            for j in range(19):
+            for j in range(self.size):
                 row += [None]
             self._grid += [row]
 
@@ -59,11 +41,6 @@ class Board:
         self._consecutive_passes = 0
         self._white_captures = 0
         self._black_captures = 0
-
-        self._display_chars = {
-            None: ".",
-            "b": "X",
-            "w": "O"}
 
         self._position_history = [copy.deepcopy(self._grid)]
 
@@ -91,24 +68,17 @@ class Board:
     def black_score(self):
         return self._black_score
 
+    @property
+    def grid(self):
+        return self._grid
+
     def _get_contents(self, crd):
         return self._grid[crd.row][crd.column]
 
     def _set_contents(self, crd, value):
         self._grid[crd.row][crd.column] = value
 
-    def as_string(self):
-        output = "   A B C D E F G H J K L M N O P Q R S T   \n"
-        for i in range(19, 0, -1):
-            output += double_digit_fill_right(i) + " "
-            for c in self._grid[i - 1]:
-                output += self._display_chars[c] + " "
-            output += double_digit_fill_left(i) + "\n"
-        output += "   A B C D E F G H J K L M N O P Q R S T   \n"
-        return output
-
-    @staticmethod
-    def _get_neighbours(crd):
+    def _get_neighbours(self, crd):
         r = crd.row
         c = crd.column
 
@@ -118,8 +88,8 @@ class Board:
                       Coord(r, c + 1)]
         valid_neighbours = []
         for i in range(4):
-            if ((0 <= neighbours[i].row <= 18) and
-                    (0 <= neighbours[i].column <= 18)):
+            if ((0 <= neighbours[i].row <= self.size - 1) and
+                    (0 <= neighbours[i].column <= self.size - 1)):
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
 
@@ -250,7 +220,7 @@ class Board:
             self._winner = "b"
 
     def is_legal_move(self, coord):
-        if (0 <= coord.row <= 18) and (0 <= coord.row <= 18):
+        if (0 <= coord.row <= self.size - 1) and (0 <= coord.row <= self.size - 1):
             if self._get_contents(coord) is None:
                 if not self._is_suicide(coord):
                     if not self._is_superko(coord):
