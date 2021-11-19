@@ -1,5 +1,5 @@
-from board import Board
-import player
+from .board import Board
+from . import player
 
 
 class GoGame:

@@ -1,5 +1,5 @@
-from go_game import GoGame
 from human_player import HumanPlayer
+from game.go_game import GoGame
 
 
 def main():

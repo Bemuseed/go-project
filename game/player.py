@@ -1,4 +1,4 @@
-import board
+from . import board
 
 
 class Player:
