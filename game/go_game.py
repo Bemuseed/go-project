@@ -20,4 +20,4 @@ class GoGame:
         while self.board.g_over is not True:
             print(self.board.as_string())
             self.board = self.current_player.get_move(self.board)
-            print(self.board.g_over)
+            self.next_player()

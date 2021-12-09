@@ -90,6 +90,9 @@ class Board:
     @property
     def black_score(self):
         return self._black_score
+    @property
+    def grid(self):
+        return self._grid
 
     def _get_contents(self, crd):
         return self._grid[crd.row][crd.column]
