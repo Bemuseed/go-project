@@ -4,7 +4,7 @@ from display import GameDisplay
 
 
 def main():
-    g = GoGame(HumanPlayer(), HumanPlayer(), size=2)
+    g = GoGame(HumanPlayer(), HumanPlayer(), size=13)
     print(g.board.size)
     d = GameDisplay()
     while not g.board.g_over:
