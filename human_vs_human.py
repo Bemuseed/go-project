@@ -1,4 +1,5 @@
 from human_player import HumanPlayer
+
 from game.go_game import GoGame
 from display import GameDisplay
 

@@ -1,5 +1,6 @@
 from game.board import Board
 
+
 class GameDisplay:
     def __init__(self):
         self._alpha = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghjklmnopqrstuvwxyz"
