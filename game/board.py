@@ -67,6 +67,9 @@ class Board:
     @property
     def black_score(self):
         return self._black_score
+    @property
+    def grid(self):
+        return self._grid
 
     @property
     def grid(self):
