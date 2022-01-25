@@ -18,3 +18,4 @@ class GoGame:
 
     def step(self):
         self.board = self.current_player.get_move(self.board)
+        self.next_player()
