@@ -1,8 +1,6 @@
-import display
 from game.board import Coord, Board
 from problems.game_tree import GameTree, GameNode
 from human_player import HumanPlayer
-from display import GameDisplay
 from problems.go_problem import GoProblem
 
 
@@ -28,7 +26,7 @@ def main():
 
     tree.traverse(moves).end_node = True
 
-    problem = GoProblem(HumanPlayer(), tree, GameDisplay())
+    problem = GoProblem(HumanPlayer(), tree)
     problem.play()
 
 
