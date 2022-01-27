@@ -1,10 +1,10 @@
-from .board import Board
-from . import player
+from game.board import Board
+from game.player import Player
 
 
 class GoGame:
     
-    def __init__(self, player_a: player.Player, player_b: player.Player, size=19):
+    def __init__(self, player_a: Player, player_b: Player, size=19):
         self.board = Board(size=size)
         self.player_a = player_a
         self.player_b = player_b
@@ -17,5 +17,5 @@ class GoGame:
             self.current_player = self.player_a
 
     def step(self):
-        self.board = self.current_player.get_move(self.board)
+        self.board.take_turn(self.current_player.get_move(self.board))
         self.next_player()

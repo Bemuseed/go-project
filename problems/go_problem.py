@@ -17,9 +17,9 @@ class GoProblem:
             current_board = current_node.game_state
             print(display.format(current_board))
 
-            new_board = self._player.get_move(copy.deepcopy(current_board))
-            if new_board in current_node.child_states:
-                current_node = current_node.get_child_from_state(new_board)
+            move = self._player.get_move(copy.deepcopy(current_board))
+            if move in current_node.child_moves:
+                current_node = current_node.get_child_from_move(move)
                 current_board = current_node.game_state
                 print(display.format(current_board))
 

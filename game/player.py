@@ -1,6 +1,5 @@
-from . import board
-
+from game.board import Board, Move
 
 class Player:
-    def get_move(self, game_board: board.Board) -> board.Board:
+    def get_move(self, game_board: Board) -> Move:
         pass

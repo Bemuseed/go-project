@@ -1,4 +1,5 @@
-from game import player, board
+from game.player import Player
+from game.board import Board, Move, Coord
 
 
 def is_a_number(string):
@@ -50,23 +51,22 @@ def get_valid_move():
                 row = int(move[1:])
         else:
             print("Please enter a valid coordinate.")
-    return board.Coord(row - 1, col - 1), pass_move
+    return Coord(row - 1, col - 1), pass_move
 
 
-class HumanPlayer(player.Player):
+class HumanPlayer(Player):
 
-    def get_move(self, game_board: board.Board) -> board.Board:
+    def get_move(self, game_board: Board) -> Move:
         move_complete = False
+        move = Move()
         print("\nIt is " + game_board.turn + "'s turn.\n")
         while not move_complete:
             coordinate, pass_move = get_valid_move()
+            move.coord = coordinate
+            move.is_pass = pass_move
             legal, reason = game_board.is_legal_move(coordinate)
             if legal:
-                game_board.make_move(coordinate)
                 move_complete = True
-            elif pass_move:
-                game_board.pass_turn()
-                move_complete = True
+                return move
             else:
                 print(reason)
-        return game_board

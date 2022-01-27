@@ -23,6 +23,19 @@ def remove_duplicates(lst):
     return unique_lst
 
 
+class Move:
+    def __init__(self, coord:Coord=None, is_pass:bool=False):
+        self.coord = coord
+        self.is_pass = is_pass
+
+    def __eq__(self, other):
+        return (self.coord == other.coord) and (self.is_pass == other.is_pass)
+
+    def __hash__(self):
+
+        return int(str(self.coord.__hash__()) + str(int(self.is_pass)))
+
+
 class Board:
     def __init__(self, komi=6.5, size=19):
 
@@ -167,7 +180,7 @@ class Board:
 
     def _is_suicide(self, coord):
         test_board = copy.deepcopy(self)
-        test_board.make_move(coord)
+        test_board._make_move(coord)
         if test_board._get_contents(coord) is None:
             return True
         else:
@@ -175,7 +188,7 @@ class Board:
 
     def _is_superko(self, coord):
         test_board = copy.deepcopy(self)
-        test_board.make_move(coord)
+        test_board._make_move(coord)
         if len(self._position_history) > 2 and test_board._grid in self._position_history:
             return True
         else:
@@ -246,16 +259,22 @@ class Board:
         else:
             return False, "Coordinates must be within the grid"
 
-    def make_move(self, move_coord):
+    def _make_move(self, move_coord):
         self._place_stone(move_coord, self._turn)
         self._position_history.append(copy.deepcopy(self._grid))
         self._consecutive_passes = 0
         self._next_turn()
 
-    def pass_turn(self):
+    def _pass_turn(self):
         self._consecutive_passes += 1
         if self._consecutive_passes == 2:
             self._g_over = True
             self._end_game()
         else:
             self._next_turn()
+
+    def take_turn(self, move: Move):
+        if move.is_pass:
+            self._pass_turn()
+        else:
+            self._make_move(move.coord)

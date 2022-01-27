@@ -1,4 +1,4 @@
-from game.board import Coord, Board
+from game.board import Coord, Move, Board
 from problems.game_tree import GameTree, GameNode
 from human_player import HumanPlayer
 from problems.go_problem import GoProblem
@@ -22,6 +22,7 @@ def main():
 
     # Main line
     moves = [Coord(18, 18), Coord(18,15), Coord(18,16), Coord(15,18), Coord(16, 18)]
+    moves = list(map(Move, moves))
     tree.add_line(tree.root, moves)
 
     tree.traverse(moves).end_node = True
