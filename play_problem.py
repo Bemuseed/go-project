@@ -1,5 +1,5 @@
 from game.board import Coord, Move, Board
-from problems.game_tree import GameTree, GameNode
+from problems.game_tree import GameTree, LeafNode, RootNode
 from human_player import HumanPlayer
 from problems.go_problem import GoProblem
 
@@ -18,7 +18,7 @@ def main():
     initial_board._grid[17][16] = "w"
     initial_board._grid[17][15] = "w"
     initial_board._turn = "w"
-    tree = GameTree(GameNode(initial_board))
+    tree = GameTree(RootNode(initial_board))
 
     # Main line
     moves = [Coord(18, 18), Coord(18,15), Coord(18,16), Coord(15,18), Coord(16, 18)]

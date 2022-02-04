@@ -4,6 +4,7 @@ from problems.game_tree import GameTree
 import display
 from game.player import Player
 
+
 class GoProblem:
     def __init__(self, player: Player, tree: GameTree):
         self._problem_tree = tree
@@ -12,15 +13,14 @@ class GoProblem:
     def play(self):
         current_node = self._problem_tree.root
         finished = False
+        current_board = current_node.game_state
+        print(display.format(current_board))
 
         while not finished:
-            current_board = current_node.game_state
-            print(display.format(current_board))
-
             move = self._player.get_move(copy.deepcopy(current_board))
             if move in current_node.child_moves:
                 current_node = current_node.get_child_from_move(move)
-                current_board = current_node.game_state
+                current_board.take_turn(move)
                 print(display.format(current_board))
 
                 if current_node.comment:
@@ -35,7 +35,3 @@ class GoProblem:
                 print("Sorry, that move is out-of-tree.")
 
         print("Puzzle complete.")
-
-
-
-

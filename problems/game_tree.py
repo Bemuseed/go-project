@@ -2,15 +2,13 @@ import copy
 from game.board import Board, Move
 
 
-class GameNode:
-    def __init__(self, game_state: Board, comment=None):
+class Node:
+    def __init__(self, comment=None, end_node=False):
         self._children = {}
-        self.game_state = game_state
         self.comment = comment
-        self.end_node = False
-
-    def __str__(self):
-        return self.game_state
+        self.end_node = end_node
+        self._value = None
+        self._value_type = type(self._value)
 
     @property
     def children(self) -> dict:
@@ -31,21 +29,30 @@ class GameNode:
     def get_child_from_move(self, move: Move):
         return self._children[move]
 
-    def get_child_from_state(self, state: Board):
-        for n in self.child_nodes:
-            if n.game_state == state:
-                return n
-        raise RuntimeError("State not found.")
-
     def add_child(self, move: Move):
-        state_copy = copy.deepcopy(self.game_state)
-        state_copy.take_turn(move)
-        child_node = GameNode(state_copy)
+        child_node = type(self)(move)
         self._children[move] = child_node
 
+class RootNode(Node):
+    def __init__(self, game_state:Board, comment:str=None):
+        super().__init__(comment)
+        self.game_state = game_state
+        self._value = self.game_state
+
+    def __str__(self):
+        return self.game_state
+
+class LeafNode(Node):
+    def __init__(self, move:Move, comment:str=None, end_node:bool=False):
+        super().__init__(comment)
+        self.move = move
+        self._value = self.move
+
+    def __str__(self):
+        return str(self.move)
 
 class GameTree:
-    def __init__(self, root: GameNode):
+    def __init__(self, root: RootNode):
         self._root = root
 
     @property
@@ -66,7 +73,7 @@ class GameTree:
             nd = nd.children[m]
         return nd
 
-    def add_line(self, base_node: GameNode, moves: list[Move]):
+    def add_line(self, base_node: Node, moves: list[Move]):
         current_node = base_node
         for m in moves:
             current_node.add_child(m)
