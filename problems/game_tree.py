@@ -3,10 +3,9 @@ from game.board import Board, Move
 
 
 class Node:
-    def __init__(self, comment=None, end_node=False):
+    def __init__(self, comment=None):
         self._children = {}
         self.comment = comment
-        self.end_node = end_node
         self._value = None
         self._value_type = type(self._value)
 
@@ -29,9 +28,11 @@ class Node:
     def get_child_from_move(self, move: Move):
         return self._children[move]
 
-    def add_child(self, move: Move):
-        child_node = type(self)(move)
-        self._children[move] = child_node
+    def add_child(self, child_node):
+        self._children[child_node.moves[0]] = child_node
+
+    def __repr__(self):
+        return self.__str__()
 
 class RootNode(Node):
     def __init__(self, game_state:Board, comment:str=None):
@@ -40,16 +41,16 @@ class RootNode(Node):
         self._value = self.game_state
 
     def __str__(self):
-        return self.game_state
+        return str(self.game_state)
 
 class LeafNode(Node):
-    def __init__(self, move:Move, comment:str=None, end_node:bool=False):
+    def __init__(self, moves:list[Move], comment:str=None, end_node:bool=False):
         super().__init__(comment)
-        self.move = move
-        self._value = self.move
+        self.moves = moves
+        self._value = self.moves
 
     def __str__(self):
-        return str(self.move)
+        return str(self.moves)
 
 class GameTree:
     def __init__(self, root: RootNode):
@@ -69,12 +70,21 @@ class GameTree:
 
     def traverse(self, moves: list[Move]):
         nd = self.root
-        for m in moves:
-            nd = nd.children[m]
+        for m in range(len(moves)):
+            print(moves[m])
+            nd = nd.children[moves[m]]
         return nd
 
-    def add_line(self, base_node: Node, moves: list[Move]):
+    def add_line(self, base_node: Node, line_nodes: list[LeafNode]):
         current_node = base_node
-        for m in moves:
-            current_node.add_child(m)
+        for l in line_nodes:
+            current_node.add_child(l)
             current_node = current_node.child_nodes[-1]
+
+    def __str__(self):
+        ret = "(" + str(self.root)
+        for c in self.root.child_nodes:
+            t = GameTree(c)
+            ret += " " + str(t)
+        ret += ")"
+        return ret

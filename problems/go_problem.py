@@ -20,15 +20,14 @@ class GoProblem:
             move = self._player.get_move(copy.deepcopy(current_board))
             if move in current_node.child_moves:
                 current_node = current_node.get_child_from_move(move)
-                current_board.take_turn(move)
-                print(display.format(current_board))
+                for m in current_node.moves:
+                    current_board.take_turn(m)
+                    print(display.format(current_board))
 
                 if current_node.comment:
                     print("\n##{}##\n".format(current_node.comment))
 
-                if current_node.children:
-                    current_node = current_node.child_nodes[0]
-                else:
+                if not current_node.children:
                     finished = True
 
             else:

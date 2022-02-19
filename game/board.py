@@ -9,8 +9,11 @@ class Coord:
     def __eq__(self, other):
         return (self.row == other.row) and (self.column == other.column)
 
+    def __repr__(self):
+        return "<" + str(self.row) + ", " + str(self.column) + ">"
+
     def __str__(self):
-        return "[" + str(self.row) + ", " + str(self.column) + "]"
+        return self.__repr__()
 
     def __hash__(self):
         return int(str(self.row) + str(self.column))
@@ -32,13 +35,20 @@ class Move:
         return (self.coord == other.coord) and (self.is_pass == other.is_pass)
 
     def __hash__(self):
+        return int(str(hash(self.coord)) + str(int(self.is_pass)))
 
-        return int(str(self.coord.__hash__()) + str(int(self.is_pass)))
+    def __str__(self):
+        if self.is_pass:
+            return "[pass]"
+        else:
+            return str(self.coord)
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class Board:
     def __init__(self, komi=6.5, size=19):
-
         self.size = size
         self._grid = []
         for i in range(self.size):
@@ -65,6 +75,9 @@ class Board:
             return True
         else:
             return False
+
+    def __str__(self):
+        return str(self._grid)
 
     @property
     def turn(self):
