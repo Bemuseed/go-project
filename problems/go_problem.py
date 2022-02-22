@@ -3,13 +3,14 @@ import copy
 from problems.game_tree import GameTree
 import display
 from game.player import Player
+import human_player
 
-CHEAT=True
 
 class GoProblem:
-    def __init__(self, player: Player, tree: GameTree):
+    def __init__(self, player: Player, tree: GameTree, cheat_mode=False):
         self._problem_tree = tree
         self._player = player
+        self.CHEAT = cheat_mode
 
     def play(self):
         current_node = self._problem_tree.root
@@ -18,9 +19,9 @@ class GoProblem:
         print(display.format(current_board))
 
         while not finished:
-            if CHEAT:
+            if self.CHEAT:
                 for c in current_node.child_nodes:
-                    print(c.moves[0])
+                    print(human_player.coord_to_string(c.moves[0].coord))
             move = self._player.get_move(copy.deepcopy(current_board))
             if move in current_node.child_moves:
                 current_node = current_node.get_child_from_move(move)

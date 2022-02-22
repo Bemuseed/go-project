@@ -84,8 +84,6 @@ def generate_tree(root_string: str) -> GameTree:
             black_placements = [convert_to_coord(c) for c in re.findall(r'[\w]+', root_string[i+2:j+1])]
 
     board = Board(size=size)
-    print(white_placements)
-    print(black_placements)
     for w in (white_placements):
         board._place_stone(w, "w")
     for b in black_placements:
@@ -99,24 +97,23 @@ def attach_children(child_string: str, parent_node: Node):
     main, children = get_parent_and_children(child_string)
     moves = []
     comment = ""
+    comment_found = False
     for i in range(len(main)):
         if main[i] == "B" or main[i] == "W":
             moves.append(main[i+2:i+4])
-        elif main[i] == "C":
+        elif main[i] == "C" and not comment_found:
             for j in range(i, len(main)):
                 if main[j] == "]":
                     comment = main[i+2:j]
+                    comment_found = True
 
-    print("main={}\nchildren={}".format(main, children))
-    print("Heres what the regex found {}".format(moves))
     moves = [Move(convert_to_coord(m)) for m in moves]
-    print("Here's the moves it made {}".format(moves))
     node = LeafNode(moves, comment=comment)
     parent_node.add_child(node)
     for c in children:
         attach_children(c, node)
 
-def sgf_to_game_tree(sgf_path:Path):
+def sgf_to_game_tree(sgf_path:Path) -> GameTree:
     sgf_text = sgf_path.read_text()
 
     parent, children = get_parent_and_children(sgf_text)

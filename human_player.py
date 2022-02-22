@@ -14,7 +14,7 @@ def alpha_to_column_number(alpha):
     order_in_alphabet = ord(alpha) - (ord('a') - 1)
     if ord(alpha) >= ord('i'):
         order_in_alphabet -= 1
-    return order_in_alphabet
+    return order_in_alphabet - 1
 
 
 def is_valid_coord(move_string):
@@ -31,27 +31,36 @@ def is_pass(move_string):
     else:
         return False
 
+def string_to_coord(coord_string: str) -> Coord:
+    col = alpha_to_column_number(coord_string[0].lower())
+    row = int(coord_string[1:]) - 1
+    coord = Coord(row, col)
+    return coord
+
+def coord_to_string(coord: Coord) -> str:
+    alpha = chr(coord.column + ord('a') + 1)
+    num = str(coord.row + 1)
+    return alpha + num
 
 def get_valid_move():
     valid_coord = False
-    row, col = 0, 0
+    coord = Coord
     pass_move = False
     while not valid_coord:
-        move = input("Enter move: ")
-        if len(move) > 0:
-            valid_coord = is_valid_coord(move)
+        entered_move= input("Enter move: ")
+        if len(entered_move) > 0:
+            valid_coord = is_valid_coord(entered_move)
             if not valid_coord:
-                if is_pass(move):
+                if is_pass(entered_move):
                     valid_coord = True
                     pass_move = True
                 else:
                     print("Invalid coordinate.")
             else:
-                col = alpha_to_column_number(move[0].lower())
-                row = int(move[1:])
+                coord = string_to_coord(entered_move)
         else:
             print("Please enter a valid coordinate.")
-    return Coord(row - 1, col - 1), pass_move
+    return coord, pass_move
 
 
 class HumanPlayer(Player):

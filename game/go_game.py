@@ -17,5 +17,6 @@ class GoGame:
             self.current_player = self.player_a
 
     def step(self):
-        self.board.take_turn(self.current_player.get_move(self.board))
+        move = self.current_player.get_move(self.board)
+        self.board.take_turn(move)
         self.next_player()
