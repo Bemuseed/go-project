@@ -64,6 +64,9 @@ def get_valid_move():
 
 
 class HumanPlayer(Player):
+    def is_legal_move(self, game_board: Board, move: Move):
+        legal, reason = game_board.is_legal_move(move)
+        return legal, reason
 
     def get_move(self, game_board: Board) -> Move:
         move_complete = False
@@ -73,7 +76,7 @@ class HumanPlayer(Player):
             coordinate, pass_move = get_valid_move()
             move.coord = coordinate
             move.is_pass = pass_move
-            legal, reason = game_board.is_legal_move(coordinate)
+            legal, reason = self.is_legal_move(game_board, move)
             if legal:
                 move_complete = True
                 return move
