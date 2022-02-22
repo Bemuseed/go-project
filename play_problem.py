@@ -9,6 +9,7 @@ from pathlib import Path
 def main():
     tree = sgf_to_game_tree(Path("/home/caleb/PycharmProjects/go-project/problems/problems/ggg-easy-01.sgf"))
     problem = GoProblem(HumanPlayer(), tree, cheat_mode=True)
-    problem.play()
+    while not problem.finished:
+        problem.step()
 
 main()
