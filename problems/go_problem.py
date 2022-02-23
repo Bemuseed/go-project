@@ -1,16 +1,17 @@
 import copy
+from typing import Callable
 
 from game.board import Board, Move
+from game.go_game import GoGame
+from game.player import Player
 from problems.game_tree import GameTree
 import display
-from game.player import Player
 from human_player import HumanPlayer
-import human_player
 
 
 class ProblemHumanPlayer(HumanPlayer):
 
-    def __init__(self, move_func):
+    def __init__(self, move_func: Callable[[], list[Move]]):
         self.get_in_tree_moves = move_func
 
     def is_legal_move(self, game_board: Board, move: Move):
@@ -20,26 +21,44 @@ class ProblemHumanPlayer(HumanPlayer):
         else:
             return False, "Sorry, that move is out-of-tree."
 
+class ProblemPuppetPlayer(Player):
+    def __init__(self, move_fetcher: Callable[[], Move]):
+        self.move_fetcher = move_fetcher
 
-class GoProblem:
-    def __init__(self, tree: GameTree, cheat_mode=False):
+    def get_move(self, game_board: Board) -> Move:
+        return self.move_fetcher()
+
+class GoProblem(GoGame):
+    def __init__(self, tree: GameTree):
         self._problem_tree = tree
-        self.CHEAT = cheat_mode
-        self.current_node = self._problem_tree.root
-        self.current_board = self.current_node.game_state
+        self._current_node = self._problem_tree.root
         self.finished = False
 
-        def move_func():
-            return self.current_node.child_moves
-        self._player = ProblemHumanPlayer(move_func)
+        def get_human_moves():
+            return self._current_node.child_moves
+        self._human_player = ProblemHumanPlayer(get_human_moves)
+
+        def get_response():
+            return self._current_node.moves[1]
+        self._puppet_player = ProblemPuppetPlayer(get_response)
+
+        super().__init__(self._human_player, self._puppet_player, board=self._current_node.game_state)
+
+    @property
+    def child_moves(self):
+        return self._current_node.child_moves
+
+    @property
+    def current_comment(self):
+        return self._current_node.comment
 
     def step(self):
         if not self.finished:
-            move = self._player.get_move(copy.deepcopy(self.current_board))
-            self.current_node = self.current_node.get_child_from_move(move)
-            for m in self.current_node.moves:
-                self.current_board.take_turn(m)
-                print(display.format(self.current_board))
+            super().step()
+            try:
+                self._current_node = self._current_node.get_child_from_move(self.move_history[-1])
+            except(KeyError):
+                pass
 
-            if not self.current_node.children:
+            if not self._current_node.children:
                 self.finished = True

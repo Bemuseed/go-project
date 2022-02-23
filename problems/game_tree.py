@@ -21,10 +21,6 @@ class Node:
     def child_nodes(self) -> list:
         return list(self._children.values())
 
-    @property
-    def child_states(self) -> list[Board]:
-        return [n.game_state for n in self.child_nodes]
-
     def get_child_from_move(self, move: Move):
         return self._children[move]
 
@@ -35,7 +31,7 @@ class Node:
         return self.__str__()
 
 class RootNode(Node):
-    def __init__(self, game_state:Board, comment:str=None):
+    def __init__(self, game_state: Board, comment: str = None):
         super().__init__(comment)
         self.game_state = game_state
         self._value = self.game_state
