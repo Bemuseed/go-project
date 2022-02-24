@@ -2,7 +2,6 @@ import display
 import human_player
 from problems.go_problem import GoProblem
 from problems.sgf_parser import sgf_to_game_tree
-from problems.game_tree import GameTree, RootNode, LeafNode
 from pathlib import Path
 
 CHEAT = True
@@ -23,5 +22,3 @@ def main():
         print(display.format(problem.board))
 
     print("Puzzle complete.")
-
-main()
