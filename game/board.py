@@ -258,6 +258,8 @@ class Board:
             self._winner = "b"
 
     def is_legal_move(self, move: Move):
+        if move.is_pass:
+            return True, ""
         coord = move.coord
         if (0 <= coord.row <= self.size - 1) and (0 <= coord.row <= self.size - 1):
             if self._get_contents(coord) is None:

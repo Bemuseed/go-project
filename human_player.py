@@ -71,7 +71,7 @@ class HumanPlayer(Player):
     def get_move(self, game_board: Board) -> Move:
         move_complete = False
         move = Move()
-        print("\nIt is " + game_board.turn + "'s turn.\n")
+        print("\nIt is " + self.name + "'s turn.\n")
         while not move_complete:
             coordinate, pass_move = get_valid_move()
             move.coord = coordinate
