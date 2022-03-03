@@ -13,6 +13,7 @@ class ProblemHumanPlayer(HumanPlayer):
 
     def __init__(self, move_func: Callable[[], list[Move]]):
         self.get_in_tree_moves = move_func
+        super().__init__("Black")
 
     def is_legal_move(self, game_board: Board, move: Move):
         legal, reason = super().is_legal_move(game_board, move)
@@ -24,6 +25,7 @@ class ProblemHumanPlayer(HumanPlayer):
 class ProblemPuppetPlayer(Player):
     def __init__(self, move_fetcher: Callable[[], Move]):
         self.move_fetcher = move_fetcher
+        super().__init__("White")
 
     def get_move(self, game_board: Board) -> Move:
         return self.move_fetcher()
