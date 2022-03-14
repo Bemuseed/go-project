@@ -1,13 +1,16 @@
+from typing import Final
+
 import display
 import human_player
 from problems.go_problem import GoProblem
 from problems.sgf_parser import sgf_to_game_tree
 from pathlib import Path
 
-CHEAT = True
-PROBLEM_DIR = Path("/home/caleb/PycharmProjects/go-project/problems/problems/")
+CHEAT: Final = True
+PROBLEM_DIR: Final = Path("/home/caleb/PycharmProjects/go-project/problems/problems/")
 
-def get_chosen_problem():
+
+def get_chosen_problem() -> Path:
     chosen = False
     choice = -1
     problem_files = list(PROBLEM_DIR.glob("*.sgf"))
@@ -26,6 +29,7 @@ def get_chosen_problem():
                 return problem_files[choice - 1]
         else:
             print("That is not a valid option.\n")
+
 
 def main():
     game_path = get_chosen_problem()

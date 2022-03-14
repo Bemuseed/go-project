@@ -2,8 +2,10 @@ from human_player import HumanPlayer
 
 from game.go_game import GoGame
 import display
+from typing import Tuple
 
-def get_names():
+
+def get_names() -> Tuple[str, str]:
     choice = input("Assign custom names [y/n]?  ").lower()
     if choice == "n":
         return "Black", "White"
@@ -25,7 +27,6 @@ def get_names():
 def main():
     name_a, name_b = get_names()
     g = GoGame(HumanPlayer(name_a), HumanPlayer(name_b))
-    print(g.board.size)
     while not g.board.g_over:
         print(display.format(g.board))
         g.step()

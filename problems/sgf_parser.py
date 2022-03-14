@@ -1,8 +1,11 @@
-from .game_tree import GameTree, RootNode, LeafNode, Node
+from typing import Tuple
+
+from game_tree import GameTree, RootNode, LeafNode, Node
 from pathlib import Path
 from game.board import Board, Coord, Move
 
 import re
+
 
 def get_children(sgf_child_string: str) -> list[str]:
     par_depth = 0
@@ -30,7 +33,8 @@ def get_children(sgf_child_string: str) -> list[str]:
             raise RuntimeError
     return children
 
-def get_parent_and_children(sgf_string: str):
+
+def get_parent_and_children(sgf_string: str) -> Tuple[str, list[str]]:
     sgf_string = sgf_string.replace("\n", "")
     sgf_string = sgf_string[1:-1]
     ind = 0
@@ -51,10 +55,12 @@ def get_parent_and_children(sgf_string: str):
         children = []
     return parent, children
 
+
 def convert_to_coord(coord_string: str) -> Coord:
     col = 18 - (ord(coord_string[1]) - ord('a'))
     row = ord(coord_string[0]) - ord('a')
     return Coord(col, row)
+
 
 def generate_tree(root_string: str) -> GameTree:
     size = 19
@@ -84,7 +90,7 @@ def generate_tree(root_string: str) -> GameTree:
             black_placements = [convert_to_coord(c) for c in re.findall(r'[\w]+', root_string[i+2:j+1])]
 
     board = Board(size=size)
-    for w in (white_placements):
+    for w in white_placements:
         board._place_stone(w, "w")
     for b in black_placements:
         board._place_stone(b, "b")
@@ -92,6 +98,7 @@ def generate_tree(root_string: str) -> GameTree:
 
     tree = GameTree(node)
     return tree
+
 
 def attach_children(child_string: str, parent_node: Node):
     main, children = get_parent_and_children(child_string)
@@ -112,6 +119,7 @@ def attach_children(child_string: str, parent_node: Node):
     parent_node.add_child(node)
     for c in children:
         attach_children(c, node)
+
 
 def sgf_to_game_tree(sgf_path:Path) -> GameTree:
     sgf_text = sgf_path.read_text()

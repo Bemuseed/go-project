@@ -1,11 +1,9 @@
-import copy
-from typing import Callable
+from typing import Callable, Union
 
 from game.board import Board, Move
 from game.go_game import GoGame
 from game.player import Player
-from problems.game_tree import GameTree
-import display
+from problems.game_tree import GameTree, RootNode, LeafNode
 from human_player import HumanPlayer
 
 
@@ -30,13 +28,14 @@ class ProblemPuppetPlayer(Player):
     def get_move(self, game_board: Board) -> Move:
         return self.move_fetcher()
 
+
 class GoProblem(GoGame):
     def __init__(self, tree: GameTree):
         self._problem_tree = tree
-        self._current_node = self._problem_tree.root
-        self.finished = False
+        self._current_node: Union[RootNode, LeafNode] = self._problem_tree.root
+        self.finished: bool = False
 
-        def get_human_moves():
+        def get_human_moves() -> list[Move]:
             return self._current_node.child_moves
         self._human_player = ProblemHumanPlayer(get_human_moves)
 
@@ -47,11 +46,11 @@ class GoProblem(GoGame):
         super().__init__(self._human_player, self._puppet_player, board=self._current_node.game_state)
 
     @property
-    def child_moves(self):
+    def child_moves(self) -> list[Move]:
         return self._current_node.child_moves
 
     @property
-    def current_comment(self):
+    def current_comment(self) -> str:
         return self._current_node.comment
 
     def step(self):

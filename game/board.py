@@ -1,8 +1,9 @@
 import copy
+from typing import Optional, Tuple
 
 
 class Coord:
-    def __init__(self, r, c):
+    def __init__(self, r: int, c: int):
         self.row = r
         self.column = c
 
@@ -18,16 +19,9 @@ class Coord:
     def __hash__(self):
         return int(str(self.row) + str(self.column))
 
-def remove_duplicates(lst):
-    unique_lst = []
-    for i in lst:
-        if not (i in unique_lst):
-            unique_lst += [i]
-    return unique_lst
-
 
 class Move:
-    def __init__(self, coord:Coord=None, is_pass:bool=False):
+    def __init__(self, coord: Coord = None, is_pass: bool = False):
         self.coord = coord
         self.is_pass = is_pass
 
@@ -57,7 +51,7 @@ class Board:
                 row += [None]
             self._grid += [row]
 
-        self.komi = komi
+        self.KOMI = komi
         self._turn = "b"
         self._winner = ""
         self._g_over = False
@@ -67,7 +61,6 @@ class Board:
         self._consecutive_passes = 0
         self._white_captures = 0
         self._black_captures = 0
-
         self._position_history = [copy.deepcopy(self._grid)]
 
     def __eq__(self, other):
@@ -102,21 +95,18 @@ class Board:
     @property
     def black_score(self):
         return self._black_score
-    @property
-    def grid(self):
-        return self._grid
 
     @property
     def grid(self):
         return self._grid
 
-    def _get_contents(self, crd):
+    def _get_contents(self, crd: Coord) -> str:
         return self._grid[crd.row][crd.column]
 
-    def _set_contents(self, crd, value):
+    def _set_contents(self, crd: Coord, value: Optional[str]):
         self._grid[crd.row][crd.column] = value
 
-    def _get_neighbours(self, crd):
+    def _get_neighbours(self, crd: Coord) -> list[Coord]:
         r = crd.row
         c = crd.column
 
@@ -132,13 +122,13 @@ class Board:
         return valid_neighbours
 
     @staticmethod
-    def _other_player(player):
+    def _other_player(player: str) -> str:
         if player == "b":
             return "w"
         else:
             return "b"
 
-    def _get_chain(self, coord):
+    def _get_chain(self, coord: Coord) -> list[Coord]:
         chain = [coord]
         current = coord
         to_check = []
@@ -159,7 +149,7 @@ class Board:
                 del to_check[0]
         return chain
 
-    def _has_liberties(self, chain):
+    def _has_liberties(self, chain: list[Coord]) -> bool:
         for stone in chain:
             neighbours = self._get_neighbours(stone)
             for n in neighbours:
@@ -167,7 +157,7 @@ class Board:
                     return True
         return False
 
-    def _capture(self, chain):
+    def _capture(self, chain: list[Coord]):
         for stone in chain:
             if self._get_contents(stone) == "w":
                 self._black_captures += 1
@@ -175,23 +165,24 @@ class Board:
                 self._white_captures += 1
             self._set_contents(stone, None)
 
-    def _capture_if_without_liberties(self, crd):
+    def _capture_if_without_liberties(self, crd: Coord):
         if self._get_contents(crd) is not None:
             chain = self._get_chain(crd)
             if not (self._has_liberties(chain)):
                 self._capture(chain)
 
-    def _place_stone(self, placed, colour):
-        self._set_contents(placed, colour)
-        affected_stones = self._get_neighbours(placed)
-        affected_stones += [placed]
+    def _place_stone(self, placement: Coord, colour: str):
+        self._set_contents(placement, colour)
+        affected_stones = self._get_neighbours(placement)
+        affected_stones += [placement]
         for s in affected_stones:
             self._capture_if_without_liberties(s)
 
     def _next_turn(self):
-        self._turn = self._other_player(self._turn)
+        if self._turn != "":
+            self._turn = self._other_player(self._turn)
 
-    def _is_suicide(self, coord):
+    def _is_suicide(self, coord: Coord) -> bool:
         test_board = copy.deepcopy(self)
         test_board._make_move(coord)
         if test_board._get_contents(coord) is None:
@@ -199,7 +190,7 @@ class Board:
         else:
             return False
 
-    def _is_superko(self, coord):
+    def _is_superko(self, coord: Coord) -> bool:
         test_board = copy.deepcopy(self)
         test_board._make_move(coord)
         if len(self._position_history) > 2 and test_board._grid in self._position_history:
@@ -207,7 +198,7 @@ class Board:
         else:
             return False
 
-    def _get_empty_chains(self):
+    def _get_empty_chains(self) -> list[list[Coord]]:
         empty_chains = []
         checked = []
         for i in range(len(self._grid)):
@@ -219,7 +210,7 @@ class Board:
                     empty_chains.append(chain)
         return empty_chains
 
-    def _get_owner(self, empty_chain):
+    def _get_owner(self, empty_chain: list[Coord]) -> Optional[str]:
         neighbouring_colours = []
         for crd in empty_chain:
             n = self._get_neighbours(crd)
@@ -227,13 +218,13 @@ class Board:
                 colour = self._get_contents(i)
                 if i not in empty_chain and colour not in neighbouring_colours:
                     neighbouring_colours.append(colour)
-        unique_neighbours = remove_duplicates(neighbouring_colours)
+        unique_neighbours = list(set(neighbouring_colours))
         if len(unique_neighbours) == 1:
             return unique_neighbours[0]
         else:
             return None
 
-    def _get_territories(self):
+    def _get_territories(self) -> Tuple[int, int]:
         b_terr = 0
         w_terr = 0
         empty_chains = self._get_empty_chains()
@@ -250,14 +241,14 @@ class Board:
 
         black_territory, white_territory = self._get_territories()
         self._black_score = black_territory - self._white_captures
-        self._white_score = white_territory - self._black_captures + self.komi
+        self._white_score = white_territory - self._black_captures + self.KOMI
 
         if self._white_score > self._black_score:
             self._winner = "w"
         else:
             self._winner = "b"
 
-    def is_legal_move(self, move: Move):
+    def is_legal_move(self, move: Move) -> Tuple[bool, str]:
         if move.is_pass:
             return True, ""
         coord = move.coord
@@ -275,22 +266,20 @@ class Board:
         else:
             return False, "Coordinates must be within the grid"
 
-    def _make_move(self, move_coord):
+    def _make_move(self, move_coord: Coord):
         self._place_stone(move_coord, self._turn)
-        self._position_history.append(copy.deepcopy(self._grid))
         self._consecutive_passes = 0
-        self._next_turn()
+        self._position_history.append(copy.deepcopy(self._grid))
 
     def _pass_turn(self):
         self._consecutive_passes += 1
         if self._consecutive_passes == 2:
             self._g_over = True
             self._end_game()
-        else:
-            self._next_turn()
 
     def take_turn(self, move: Move):
         if move.is_pass:
             self._pass_turn()
         else:
             self._make_move(move.coord)
+        self._next_turn()

@@ -1,13 +1,12 @@
-import copy
+from typing import Dict, Any
 from game.board import Board, Move
 
 
 class Node:
-    def __init__(self, comment=None):
-        self._children = {}
+    def __init__(self, comment: str = None):
+        self._children: Dict[Move, Node] = {}
         self.comment = comment
-        self._value = None
-        self._value_type = type(self._value)
+        self._value: Any = None
 
     @property
     def children(self) -> dict:
@@ -30,6 +29,7 @@ class Node:
     def __repr__(self):
         return self.__str__()
 
+
 class RootNode(Node):
     def __init__(self, game_state: Board, comment: str = None):
         super().__init__(comment)
@@ -39,8 +39,9 @@ class RootNode(Node):
     def __str__(self):
         return str(self.game_state)
 
+
 class LeafNode(Node):
-    def __init__(self, moves:list[Move], comment:str=None, end_node:bool=False):
+    def __init__(self, moves: list[Move], comment: str = None):
         super().__init__(comment)
         self.moves = moves
         self._value = self.moves
@@ -48,12 +49,13 @@ class LeafNode(Node):
     def __str__(self):
         return str(self.moves)
 
+
 class GameTree:
     def __init__(self, root: RootNode):
         self._root = root
 
     @property
-    def nodes(self):
+    def nodes(self) -> int:
         node_count = 1
         for c in self._root.child_nodes:
             t = GameTree(c)
@@ -64,7 +66,7 @@ class GameTree:
     def root(self):
         return self._root
 
-    def traverse(self, moves: list[Move]):
+    def traverse(self, moves: list[Move]) -> Node:
         nd = self.root
         for m in range(len(moves)):
             print(moves[m])

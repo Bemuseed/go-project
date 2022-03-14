@@ -8,7 +8,7 @@ DISPLAY_CHARS = {
     "w": "O"}
 
 
-def double_digit_fill_left(number) -> str:
+def double_digit_fill_left(number: str) -> str:
     if int(number) >= 10:
         return str(number)
     elif int(number) >= 100:
@@ -17,7 +17,7 @@ def double_digit_fill_left(number) -> str:
         return " " + str(number)
 
 
-def double_digit_fill_right(number) -> str:
+def double_digit_fill_right(number: str) -> str:
     if int(number) >= 10:
         return str(number)
     elif int(number) >= 100:
@@ -25,7 +25,8 @@ def double_digit_fill_right(number) -> str:
     else:
         return str(number) + " "
 
-def format(b: Board):
+
+def format(b: Board) -> str:
     banner = "   " + " ".join(ALPHA[:b.size]) + "   \n"
     output = banner
     for i in range(b.size, 0, -1):
