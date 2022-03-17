@@ -4,7 +4,7 @@ from game.player import Player
 
 class GoGame:
 
-    def __init__(self, player_a: Player, player_b: Player, board: Board = Board(size=19), nickname_a: str = "Black",
+    def __init__(self, player_a: Player, player_b: Player, board: Board = Board(), nickname_a: str = "Black",
                  nickname_b: str = "White"):
         self.board = board
         self.player_a = player_a

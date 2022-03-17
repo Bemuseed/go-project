@@ -9,6 +9,10 @@ class Node:
         self._value: Any = None
 
     @property
+    def value(self):
+        return self._value
+
+    @property
     def children(self) -> dict:
         return self._children
 

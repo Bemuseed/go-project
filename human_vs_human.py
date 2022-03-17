@@ -1,3 +1,4 @@
+from game.board import Board
 from human_player import HumanPlayer
 
 from game.go_game import GoGame
@@ -24,9 +25,19 @@ def get_names() -> Tuple[str, str]:
 
     return name_a, name_b
 
+
+def get_komi() -> float:
+    komi = input("Komi for this game [default: 6.5]:  ")
+    if komi.isnumeric():
+        return float(komi)
+    else:
+        return 0
+
+
 def main():
     name_a, name_b = get_names()
-    g = GoGame(HumanPlayer(name_a), HumanPlayer(name_b))
+    komi = get_komi()
+    g = GoGame(HumanPlayer(name_a), HumanPlayer(name_b), board=Board(komi=komi))
     while not g.board.g_over:
         print(display.format(g.board))
         g.step()
