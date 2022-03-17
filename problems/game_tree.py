@@ -1,9 +1,9 @@
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from game.board import Board, Move
 
 
 class Node:
-    def __init__(self, comment: str = None):
+    def __init__(self, comment: Optional[str] = None):
         self._children: Dict[Move, Node] = {}
         self.comment = comment
         self._value: Any = None
@@ -63,7 +63,7 @@ class GameTree:
         return node_count
 
     @property
-    def root(self):
+    def root(self) -> RootNode:
         return self._root
 
     def traverse(self, moves: list[Move]) -> Node:

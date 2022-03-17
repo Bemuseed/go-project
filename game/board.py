@@ -42,26 +42,28 @@ class Move:
 
 
 class Board:
-    def __init__(self, komi=6.5, size=19):
-        self.size = size
-        self._grid = []
-        for i in range(self.size):
+    def __init__(self, komi: float = 6.5, size: int = 19):
+        self.SIZE = size
+        self.KOMI = komi
+
+        grid_type = list[list[str]]
+        self._grid: grid_type = []
+        for i in range(self.SIZE):
             row = []
-            for j in range(self.size):
+            for j in range(self.SIZE):
                 row += [None]
             self._grid += [row]
 
-        self.KOMI = komi
-        self._turn = "b"
-        self._winner = ""
-        self._g_over = False
-        self._black_score = 0
-        self._white_score = 0
+        self._turn: str = "b"
+        self._winner: str = ""
+        self._g_over: bool = False
+        self._black_score: float = 0
+        self._white_score: float = 0
 
-        self._consecutive_passes = 0
-        self._white_captures = 0
-        self._black_captures = 0
-        self._position_history = [copy.deepcopy(self._grid)]
+        self._consecutive_passes: int = 0
+        self._white_captures: int = 0
+        self._black_captures: int = 0
+        self._position_history: list[grid_type] = [copy.deepcopy(self._grid)]
 
     def __eq__(self, other):
         if self.grid == other.grid:
@@ -116,8 +118,8 @@ class Board:
                       Coord(r, c + 1)]
         valid_neighbours = []
         for i in range(4):
-            if ((0 <= neighbours[i].row <= self.size - 1) and
-                    (0 <= neighbours[i].column <= self.size - 1)):
+            if ((0 <= neighbours[i].row <= self.SIZE - 1) and
+                    (0 <= neighbours[i].column <= self.SIZE - 1)):
                 valid_neighbours += [neighbours[i]]
         return valid_neighbours
 
@@ -252,7 +254,7 @@ class Board:
         if move.is_pass:
             return True, ""
         coord = move.coord
-        if (0 <= coord.row <= self.size - 1) and (0 <= coord.row <= self.size - 1):
+        if (0 <= coord.row <= self.SIZE - 1) and (0 <= coord.row <= self.SIZE - 1):
             if self._get_contents(coord) is None:
                 if not self._is_suicide(coord):
                     if not self._is_superko(coord):

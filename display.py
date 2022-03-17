@@ -27,9 +27,9 @@ def double_digit_fill_right(number: str) -> str:
 
 
 def format(b: Board) -> str:
-    banner = "   " + " ".join(ALPHA[:b.size]) + "   \n"
+    banner = "   " + " ".join(ALPHA[:b.SIZE]) + "   \n"
     output = banner
-    for i in range(b.size, 0, -1):
+    for i in range(b.SIZE, 0, -1):
         output += double_digit_fill_right(i) + " "
         for c in b.grid[i - 1]:
             output += DISPLAY_CHARS[c] + " "
