@@ -247,8 +247,10 @@ class Board:
 
         if self._white_score > self._black_score:
             self._winner = "w"
-        else:
+        elif self._black_score > self._white_score:
             self._winner = "b"
+        else:
+            self._winner = "-"
 
     def is_legal_move(self, move: Move) -> Tuple[bool, str]:
         if move.is_pass:

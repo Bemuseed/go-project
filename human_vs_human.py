@@ -8,7 +8,7 @@ from typing import Tuple
 
 def get_names() -> Tuple[str, str]:
     choice = input("Assign custom names [y/n]?  ").lower()
-    if choice == "n":
+    if choice != "y":
         return "Black", "White"
 
     name_a = ""
@@ -31,7 +31,7 @@ def get_komi() -> float:
     if komi.isnumeric():
         return float(komi)
     else:
-        return 0
+        return 6.5
 
 
 def main():
@@ -45,4 +45,8 @@ def main():
     print("\n" + display.format(g.board) + "\n")
     winning_score = max(g.board.white_score, g.board.black_score)
     losing_score = min(g.board.white_score, g.board.black_score)
-    print(g.players[g.board.winner].name, "has won, with", winning_score, "to", losing_score)
+    winner = g.board.winner
+    if winner != "-":
+        print(g.players[g.board.winner].name, "has won, with", winning_score, "to", losing_score)
+    else:
+        print(f"{list(g.players.values())[0].name} and {list(g.players.values())[1].name} have drawn with {winning_score} to {winning_score}!")
