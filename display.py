@@ -1,7 +1,7 @@
 from game.board import Board
 
 
-ALPHA = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghjklmnopqrstuvwxyz"
+ALPHA = "abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ"
 DISPLAY_CHARS = {
     None: ".",
     "b": "X",

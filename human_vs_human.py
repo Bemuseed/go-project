@@ -33,11 +33,20 @@ def get_komi() -> float:
     else:
         return 6.5
 
+def get_size() -> int:
+    size = input("Size of the board [between 5 and 30; default 19]:  ")
+    if size.isnumeric():
+        size = int(size)
+        if 5 <= size <= 50:
+            return size
+    return 19
+
 
 def main():
+    size = get_size()
     name_a, name_b = get_names()
     komi = get_komi()
-    g = GoGame(HumanPlayer(name_a), HumanPlayer(name_b), board=Board(komi=komi))
+    g = GoGame(HumanPlayer(name_a), HumanPlayer(name_b), board=Board(komi=komi, size=size))
     while not g.board.g_over:
         print(display.format(g.board))
         g.step()

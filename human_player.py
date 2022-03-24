@@ -2,18 +2,17 @@ from typing import Tuple, Optional
 
 from game.player import Player
 from game.board import Board, Move, Coord
+from display import ALPHA
 
 
 def alpha_to_column_number(alpha: str) -> int:
-    order_in_alphabet = ord(alpha) - (ord('a') - 1)
-    if ord(alpha) >= ord('i'):
-        order_in_alphabet -= 1
-    return order_in_alphabet - 1
+    order_in_alphabet = ALPHA.index(alpha)
+    return order_in_alphabet
 
 
-def is_valid_coord(move_string: str) -> bool:
-    alpha = move_string[0].lower()
-    if ord('a') <= ord(alpha) <= ord('t') and alpha != 'i':
+def is_valid_coord(move_string: str, size: int) -> bool:
+    alpha = move_string[0]
+    if 0 <= ALPHA.index(alpha) <= (size - 1) and alpha.lower() != 'i':
         if move_string[1:].isnumeric():
             return True
     return False
@@ -28,7 +27,7 @@ def is_pass(move_string: str) -> bool:
 
 
 def string_to_coord(coord_string: str) -> Coord:
-    col = alpha_to_column_number(coord_string[0].lower())
+    col = alpha_to_column_number(coord_string[0])
     row = int(coord_string[1:]) - 1
     coord = Coord(row, col)
     return coord
@@ -40,14 +39,14 @@ def coord_to_string(coord: Coord) -> str:
     return alpha + num
 
 
-def get_valid_move() -> Tuple[Coord, bool]:
+def get_valid_move(size: int) -> Tuple[Coord, bool]:
     valid_coord = False
     coord = Coord
     pass_move = False
     while not valid_coord:
-        entered_move= input("Enter move: ")
+        entered_move = input("Enter move: ")
         if len(entered_move) > 0:
-            valid_coord = is_valid_coord(entered_move)
+            valid_coord = is_valid_coord(entered_move, size)
             if not valid_coord:
                 if is_pass(entered_move):
                     valid_coord = True
@@ -71,7 +70,7 @@ class HumanPlayer(Player):
         move = Move()
         print("\nIt is " + self.name + "'s turn.\n")
         while not move_complete:
-            coordinate, pass_move = get_valid_move()
+            coordinate, pass_move = get_valid_move(game_board.SIZE)
             move.coord = coordinate
             move.is_pass = pass_move
             legal, reason = self.is_legal_move(game_board, move)
