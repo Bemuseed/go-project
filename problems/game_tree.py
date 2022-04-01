@@ -4,13 +4,8 @@ from game.board import Board, Move
 
 class Node:
     def __init__(self, comment: Optional[str] = None):
-        self._children: Dict[Move, Node] = {}
+        self._children: Dict[Move, LeafNode] = {}
         self.comment = comment
-        self._value: Any = None
-
-    @property
-    def value(self):
-        return self._value
 
     @property
     def children(self) -> dict:
@@ -38,7 +33,6 @@ class RootNode(Node):
     def __init__(self, game_state: Board, comment: str = None):
         super().__init__(comment)
         self.game_state = game_state
-        self._value = self.game_state
 
     def __str__(self):
         return str(self.game_state)
@@ -48,7 +42,6 @@ class LeafNode(Node):
     def __init__(self, moves: list[Move], comment: str = None):
         super().__init__(comment)
         self.moves = moves
-        self._value = self.moves
 
     def __str__(self):
         return str(self.moves)
