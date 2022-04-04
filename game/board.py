@@ -139,8 +139,6 @@ class Board:
         colour = self._get_contents(coord)
 
         while not to_check.is_empty():
-            print(to_check.is_empty())
-            print(to_check._contents)
             neighbours = self._get_neighbours(to_check.dequeue())
             for i in neighbours:
                 if self._get_contents(i) == colour:

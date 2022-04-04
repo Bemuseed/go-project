@@ -6,7 +6,7 @@ class Queue:
         self._contents = []
 
     def is_empty(self) -> bool:
-        return bool(self._contents)
+        return not bool(self._contents)
 
     def enqueue(self, item: Any):
         self._contents.append(item)
@@ -14,3 +14,4 @@ class Queue:
     def dequeue(self) -> Any:
         item = self._contents[0]
         del self._contents[0]
+        return item
