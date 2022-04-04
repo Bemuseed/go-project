@@ -1,6 +1,8 @@
 import copy
 from typing import Optional, Tuple
 
+from game.queue import Queue
+
 
 class Coord:
     def __init__(self, r: int, c: int):
@@ -132,23 +134,19 @@ class Board:
 
     def _get_chain(self, coord: Coord) -> list[Coord]:
         chain = [coord]
-        current = coord
-        to_check = []
+        to_check = Queue()
+        to_check.enqueue(coord)
         colour = self._get_contents(coord)
 
-        done = False
-        while not done:
-            neighbours = self._get_neighbours(current)
+        while not to_check.is_empty():
+            print(to_check.is_empty())
+            print(to_check._contents)
+            neighbours = self._get_neighbours(to_check.dequeue())
             for i in neighbours:
                 if self._get_contents(i) == colour:
                     if not (i in chain):
-                        to_check += [i]
-                        chain += [i]
-            if not to_check:
-                done = True
-            else:
-                current = to_check[0]
-                del to_check[0]
+                        to_check.enqueue(i)
+                        chain.append(i)
         return chain
 
     def _has_liberties(self, chain: list[Coord]) -> bool:
