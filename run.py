@@ -22,4 +22,4 @@ while not exit:
     elif choice == "x":
         exit = True
     else:
-        print("'{}' is an invalid choice.\n")
+        print("'{}' is an invalid choice.\n".format(choice))
