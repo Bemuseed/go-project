@@ -14,6 +14,8 @@ class ProblemHumanPlayer(HumanPlayer):
         super().__init__("Black")
 
     def is_legal_move(self, game_board: Board, move: Move):
+        if move.is_pass:
+            return False, "Sorry, passing is not the correct action here."
         legal, reason = super().is_legal_move(game_board, move)
         if move in self.get_in_tree_moves():
             return legal, reason

@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from .game_tree import GameTree, RootNode, LeafNode, Node
+from problems.game_tree import GameTree, RootNode, LeafNode, Node
 from pathlib import Path
 from game.board import Board, Coord, Move
 
