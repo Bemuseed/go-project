@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:creation-date>2021-08-30T12:21:41.407918900</meta:creation-date><dc:date>2022-04-25T09:29:54.380075734</dc:date><meta:editing-duration>PT18H19M10S</meta:editing-duration><meta:editing-cycles>81</meta:editing-cycles><meta:generator>LibreOffice/7.2.6.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="2" meta:image-count="8" meta:object-count="0" meta:page-count="20" meta:paragraph-count="178" meta:word-count="3406" meta:character-count="18983" meta:non-whitespace-character-count="15765"/></office:meta>
+ <office:meta><meta:creation-date>2021-08-30T12:21:41.407918900</meta:creation-date><dc:date>2022-04-25T10:12:23.293399372</dc:date><meta:editing-duration>PT18H30M36S</meta:editing-duration><meta:editing-cycles>83</meta:editing-cycles><meta:generator>LibreOffice/7.2.6.2$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="2" meta:image-count="8" meta:object-count="0" meta:page-count="21" meta:paragraph-count="184" meta:word-count="3952" meta:character-count="22076" meta:non-whitespace-character-count="18314"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">565215</config:config-item>
+   <config:config-item config:name="ViewAreaTop" config:type="long">526480</config:config-item>
    <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
    <config:config-item config:name="ViewAreaWidth" config:type="long">40379</config:config-item>
    <config:config-item config:name="ViewAreaHeight" config:type="long">23915</config:config-item>
@@ -13,12 +13,12 @@
    <config:config-item-map-indexed config:name="Views">
     <config:config-item-map-entry>
      <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">18507</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">578383</config:config-item>
+     <config:config-item config:name="ViewLeft" config:type="long">21747</config:config-item>
+     <config:config-item config:name="ViewTop" config:type="long">631326</config:config-item>
      <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">565215</config:config-item>
+     <config:config-item config:name="VisibleTop" config:type="long">526480</config:config-item>
      <config:config-item config:name="VisibleRight" config:type="long">40377</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">589128</config:config-item>
+     <config:config-item config:name="VisibleBottom" config:type="long">550393</config:config-item>
      <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutColumns" config:type="short">0</config:config-item>
      <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
@@ -97,7 +97,7 @@
    </config:config-item-map-indexed>
    <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
    <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">11592275</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">11838161</config:config-item>
    <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
    <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
@@ -144,7 +144,9 @@
  </office:settings>
  <office:scripts>
   <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
   </office:script>
  </office:scripts>
  <office:font-face-decls>
@@ -283,6 +285,9 @@
   </style:style>
   <style:style style:name="Index_20_Link" style:display-name="Index Link" style:family="text"/>
   <style:style style:name="Variable" style:family="text">
+   <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Emphasis" style:family="text">
    <style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
   </style:style>
   <style:style style:name="Graphics" style:family="graphic">
@@ -677,19 +682,19 @@
    <style:text-properties officeooo:rsid="00a452c9" officeooo:paragraph-rsid="00a452c9"/>
   </style:style>
   <style:style style:name="P54" style:family="paragraph" style:parent-style-name="Heading_20_1">
-   <style:text-properties officeooo:rsid="00ae898f" officeooo:paragraph-rsid="00ae898f"/>
+   <style:text-properties officeooo:paragraph-rsid="00ae898f"/>
   </style:style>
   <style:style style:name="P55" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:text-properties officeooo:rsid="0097a73a" officeooo:paragraph-rsid="0097a73a"/>
   </style:style>
   <style:style style:name="P56" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties officeooo:rsid="00af7cbf" officeooo:paragraph-rsid="00af7cbf"/>
+   <style:text-properties officeooo:rsid="00af7cbf" officeooo:paragraph-rsid="00b2cf4c"/>
   </style:style>
   <style:style style:name="P57" style:family="paragraph" style:parent-style-name="Heading_20_2">
    <style:text-properties officeooo:rsid="00ae898f" officeooo:paragraph-rsid="00ae898f"/>
   </style:style>
   <style:style style:name="P58" style:family="paragraph" style:parent-style-name="Heading_20_2">
-   <style:text-properties officeooo:rsid="00b0e253" officeooo:paragraph-rsid="00b0e253"/>
+   <style:text-properties officeooo:rsid="00b0e253" officeooo:paragraph-rsid="00b2cf4c"/>
   </style:style>
   <style:style style:name="P59" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L1"/>
   <style:style style:name="P60" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L2"/>
@@ -705,18 +710,30 @@
   <style:style style:name="P66" style:family="paragraph" style:parent-style-name="Standard" style:list-style-name="L5">
    <style:text-properties officeooo:rsid="008a0b00" officeooo:paragraph-rsid="008a0b00"/>
   </style:style>
-  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties officeooo:rsid="00afa115" officeooo:paragraph-rsid="00afa115"/>
+  <style:style style:name="P67" style:family="paragraph" style:parent-style-name="Standard">
+   <style:text-properties officeooo:rsid="00b27563" officeooo:paragraph-rsid="00b27563"/>
   </style:style>
   <style:style style:name="P68" style:family="paragraph" style:parent-style-name="Text_20_body">
-   <style:text-properties officeooo:rsid="00b0e253" officeooo:paragraph-rsid="00b0e253"/>
+   <style:text-properties officeooo:rsid="00b27563" officeooo:paragraph-rsid="00b2cf4c"/>
   </style:style>
-  <style:style style:name="P69" style:family="paragraph">
+  <style:style style:name="P69" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:rsid="00b27563" officeooo:paragraph-rsid="00b4a2d1"/>
+  </style:style>
+  <style:style style:name="P70" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:paragraph-rsid="00b2cf4c"/>
+  </style:style>
+  <style:style style:name="P71" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:rsid="00af7cbf" officeooo:paragraph-rsid="00b2cf4c"/>
+  </style:style>
+  <style:style style:name="P72" style:family="paragraph" style:parent-style-name="Text_20_body">
+   <style:text-properties officeooo:paragraph-rsid="00b4a2d1"/>
+  </style:style>
+  <style:style style:name="P73" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
    <style:paragraph-properties fo:margin-left="0.199cm" fo:margin-right="0cm" fo:margin-top="0.101cm" fo:margin-bottom="0cm" fo:text-indent="0cm" style:writing-mode="lr-tb"/>
    <style:text-properties style:font-name="Liberation Mono" fo:font-size="14pt" style:font-size-asian="14pt" style:font-size-complex="14pt"/>
   </style:style>
-  <style:style style:name="P70" style:family="paragraph">
+  <style:style style:name="P74" style:family="paragraph">
    <loext:graphic-properties draw:fill="none" draw:fill-color="#ffffff"/>
    <style:paragraph-properties fo:margin-left="0.199cm" fo:margin-right="0cm" fo:margin-top="0.101cm" fo:margin-bottom="0cm" fo:text-indent="0cm" style:writing-mode="lr-tb"/>
    <style:text-properties style:font-name="Liberation Mono" fo:font-size="12pt"/>
@@ -794,31 +811,61 @@
    <style:text-properties fo:font-style="italic" officeooo:rsid="00b0e253" style:font-style-asian="italic" style:font-style-complex="italic"/>
   </style:style>
   <style:style style:name="T25" style:family="text">
-   <style:text-properties fo:font-style="normal" officeooo:rsid="009b1018" style:font-style-asian="normal" style:font-style-complex="normal"/>
+   <style:text-properties fo:font-style="italic" officeooo:rsid="00b2cf4c" style:font-style-asian="italic" style:font-style-complex="italic"/>
   </style:style>
   <style:style style:name="T26" style:family="text">
-   <style:text-properties fo:font-style="normal" officeooo:rsid="00a6cc13" style:font-style-asian="normal" style:font-style-complex="normal"/>
+   <style:text-properties fo:font-style="normal" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T27" style:family="text">
-   <style:text-properties officeooo:rsid="00a265e5"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="009b1018" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T28" style:family="text">
-   <style:text-properties officeooo:rsid="00a6cc13"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="00a6cc13" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T29" style:family="text">
-   <style:text-properties officeooo:rsid="00a861c4"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="00b0e253" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T30" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="00afa115" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T31" style:family="text">
-   <style:text-properties style:font-name="Liberation Mono" fo:font-size="14pt" style:font-size-asian="14pt" style:font-size-complex="14pt"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="00b2cf4c" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T32" style:family="text">
-   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Mono" fo:font-size="14pt" style:font-name-asian="DejaVu Sans Mono" style:font-size-asian="14pt" style:font-name-complex="DejaVu Sans Mono" style:font-size-complex="14pt"/>
+   <style:text-properties fo:font-style="normal" officeooo:rsid="00b4a2d1" style:font-style-asian="normal" style:font-style-complex="normal"/>
   </style:style>
   <style:style style:name="T33" style:family="text">
+   <style:text-properties officeooo:rsid="00a265e5"/>
+  </style:style>
+  <style:style style:name="T34" style:family="text">
+   <style:text-properties officeooo:rsid="00a6cc13"/>
+  </style:style>
+  <style:style style:name="T35" style:family="text">
+   <style:text-properties officeooo:rsid="00a861c4"/>
+  </style:style>
+  <style:style style:name="T36" style:family="text">
+   <style:text-properties style:font-name="Liberation Mono"/>
+  </style:style>
+  <style:style style:name="T37" style:family="text">
+   <style:text-properties style:font-name="Liberation Mono" fo:font-size="14pt" style:font-size-asian="14pt" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="T38" style:family="text">
+   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Mono" fo:font-size="14pt" style:font-name-asian="DejaVu Sans Mono" style:font-size-asian="14pt" style:font-name-complex="DejaVu Sans Mono" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="T39" style:family="text">
    <style:text-properties officeooo:rsid="00b0e253"/>
+  </style:style>
+  <style:style style:name="T40" style:family="text">
+   <style:text-properties officeooo:rsid="00b27563"/>
+  </style:style>
+  <style:style style:name="T41" style:family="text">
+   <style:text-properties officeooo:rsid="00ae898f"/>
+  </style:style>
+  <style:style style:name="T42" style:family="text">
+   <style:text-properties officeooo:rsid="00b2cf4c"/>
+  </style:style>
+  <style:style style:name="T43" style:family="text">
+   <style:text-properties officeooo:rsid="00b4a2d1"/>
   </style:style>
   <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Frame">
    <style:graphic-properties style:run-through="foreground" style:wrap="none" style:vertical-pos="from-top" style:vertical-rel="paragraph" style:horizontal-pos="from-left" style:horizontal-rel="paragraph" style:mirror="none" fo:clip="rect(1.118cm, 0.252cm, 1.334cm, 0.326cm)" draw:luminance="0%" draw:contrast="0%" draw:red="0%" draw:green="0%" draw:blue="0%" draw:gamma="100%" draw:color-inversion="false" draw:image-opacity="100%" draw:color-mode="standard"/>
@@ -7671,18 +7718,18 @@
    <text:p text:style-name="Standard">The root node contains info pertaining to the entire file, <text:span text:style-name="T4">such as</text:span>: the version of the format being used, in the <text:span text:style-name="Teletype">FF</text:span> property; the game being played, in <text:span text:style-name="Teletype">GM</text:span>, <text:s/>which is set to 1 for Go; the size of the board, in <text:span text:style-name="Teletype">SZ</text:span>; <text:span text:style-name="T1">and the </text:span><text:span text:style-name="T2">initial board state for a problem can be expressed through lists of coordinates in the </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T3">AW</text:span></text:span> <text:span text:style-name="T3">and </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T3">AB</text:span></text:span> <text:span text:style-name="T3">properties, which place down white and black stones respectively (critically, this is different from making a move</text:span><text:span text:style-name="T4">). </text:span></text:p>
    <text:p text:style-name="Standard"/>
    <text:p text:style-name="P7"><text:span text:style-name="T4">Subsequent nodes can have annotations (using various properties), comments (using </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T4">C</text:span></text:span><text:span text:style-name="T4">), and black and white moves (with </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T4">B</text:span></text:span> <text:span text:style-name="T4">and </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T4">C</text:span></text:span><text:span text:style-name="T4">).</text:span></text:p>
-   <text:p text:style-name="P7"><draw:frame text:anchor-type="paragraph" draw:z-index="6" draw:name="Text Frame 1" draw:style-name="gr4" draw:text-style-name="P70" svg:width="13.817cm" svg:height="5.356cm" svg:x="1.591cm" svg:y="2.08cm">
+   <text:p text:style-name="P7"><draw:frame text:anchor-type="paragraph" draw:z-index="6" draw:name="Text Frame 1" draw:style-name="gr4" draw:text-style-name="P74" svg:width="13.817cm" svg:height="5.356cm" svg:x="1.591cm" svg:y="2.08cm">
      <draw:text-box>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">Collection = GameTree { GameTree }</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">GameTree <text:s text:c="2"/>= &quot;(&quot; Sequence { GameTree } &quot;)&quot;</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">Sequence <text:s text:c="2"/>= Node { Node }</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">Node <text:s text:c="6"/>= &quot;;&quot; { Property }</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">Property <text:s text:c="2"/>= PropIdent PropValue { PropValue }</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">PropIdent <text:s/>= UcLetter { UcLetter }</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">PropValue <text:s/>= &quot;[&quot; CValueType &quot;]&quot;</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">CValueType = (ValueType | Compose)</text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:s text:c="2"/></text:span><text:span text:style-name="T30">ValueType <text:s/>= (None | Number | Real | Double | Color </text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30">| SimpleText | Text | Point <text:s/>| Move </text:span></text:p>
-      <text:p><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30"><text:tab/></text:span><text:span text:style-name="T30">| Stone)</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">Collection = GameTree { GameTree }</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">GameTree <text:s text:c="2"/>= &quot;(&quot; Sequence { GameTree } &quot;)&quot;</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">Sequence <text:s text:c="2"/>= Node { Node }</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">Node <text:s text:c="6"/>= &quot;;&quot; { Property }</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">Property <text:s text:c="2"/>= PropIdent PropValue { PropValue }</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">PropIdent <text:s/>= UcLetter { UcLetter }</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">PropValue <text:s/>= &quot;[&quot; CValueType &quot;]&quot;</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">CValueType = (ValueType | Compose)</text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:s text:c="2"/></text:span><text:span text:style-name="T36">ValueType <text:s/>= (None | Number | Real | Double | Color </text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36">| SimpleText | Text | Point <text:s/>| Move </text:span></text:p>
+      <text:p><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36"><text:tab/></text:span><text:span text:style-name="T36">| Stone)</text:span></text:p>
      </draw:text-box>
     </draw:frame>The general syntax is very helpfully summarized on the official website with an EBNF definition:</text:p>
    <text:p text:style-name="P4"><text:s/></text:p>
@@ -7716,7 +7763,7 @@
      <text:p text:style-name="P62">Violates ko (repeats a previous board position).</text:p>
     </text:list-item>
    </text:list>
-   <text:list xml:id="list92956589905542" text:continue-list="list1995070055" text:style-name="L3">
+   <text:list xml:id="list101540481201619" text:continue-list="list1995070055" text:style-name="L3">
     <text:list-item>
      <text:p text:style-name="P61">The game should end when both players pass.</text:p>
     </text:list-item>
@@ -7753,7 +7800,7 @@
      <text:p text:style-name="P65"><text:soft-page-break/>Enable “Go-by-Email”, whereby the user can have long-term “correspondence” games with multiple people, where moves are sent via email and parsed by the program.</text:p>
     </text:list-item>
     <text:list-item>
-     <text:p text:style-name="P65">Allow the user to enter variable board sizes before a game, between 5x5 and <text:span text:style-name="T28">30</text:span><text:span text:style-name="T10">x</text:span><text:span text:style-name="T28">30s</text:span>.</text:p>
+     <text:p text:style-name="P65">Allow the user to enter variable board sizes before a game, between 5x5 and <text:span text:style-name="T34">30</text:span><text:span text:style-name="T10">x</text:span><text:span text:style-name="T34">30s</text:span>.</text:p>
     </text:list-item>
     <text:list-item>
      <text:p text:style-name="P65">Add timers for when the players are selecting a move.</text:p>
@@ -10499,52 +10546,52 @@
    <text:p text:style-name="P20"/>
    <text:h text:style-name="P46" text:outline-level="2">Algorithms</text:h>
    <text:p text:style-name="Standard"/>
-   <text:p text:style-name="P22"><draw:frame text:anchor-type="paragraph" draw:z-index="9" draw:name="Text Frame 2" draw:style-name="gr3" draw:text-style-name="P69" svg:width="16.107cm" svg:height="3.398cm" svg:x="0cm" svg:y="3.265cm">
+   <text:p text:style-name="P22"><draw:frame text:anchor-type="paragraph" draw:z-index="9" draw:name="Text Frame 2" draw:style-name="gr3" draw:text-style-name="P73" svg:width="16.107cm" svg:height="3.398cm" svg:x="0cm" svg:y="3.265cm">
      <draw:text-box>
-      <text:p><text:span text:style-name="T31">PROC capture_if_without_liberties(crd: Coord):</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">if contents(crd) = None:</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">chain ← get_chain(crd)</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">if NOT(has_liberties(chain)):</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">capture(chain)</text:span></text:p>
+      <text:p><text:span text:style-name="T37">PROC capture_if_without_liberties(crd: Coord):</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">if contents(crd) = None:</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">chain ← get_chain(crd)</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">if NOT(has_liberties(chain)):</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">capture(chain)</text:span></text:p>
      </draw:text-box>
     </draw:frame><text:span text:style-name="T19">Several of the key algorithms used in my project are utilized in the capturing of stones. Every time a stone is placed, a procedure called </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T19">capture_if_without_liberties</text:span></text:span> <text:span text:style-name="T19">is run on it and each of its neighbouring coordinates:</text:span></text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P24"><text:soft-page-break/><text:span text:style-name="T20">A chain is a group of stones of the same colour that share liberties – in </text:span><text:span text:style-name="T28">the</text:span><text:span text:style-name="T20"> program itself, a list of </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T20">Coord</text:span></text:span> <text:span text:style-name="T20">objects.</text:span></text:p>
+   <text:p text:style-name="P24"><text:soft-page-break/><text:span text:style-name="T20">A chain is a group of stones of the same colour that share liberties – in </text:span><text:span text:style-name="T34">the</text:span><text:span text:style-name="T20"> program itself, a list of </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T20">Coord</text:span></text:span> <text:span text:style-name="T20">objects.</text:span></text:p>
    <text:p text:style-name="P24"/>
-   <text:p text:style-name="P24"><draw:frame text:anchor-type="paragraph" draw:z-index="10" draw:name="Text Frame 4" draw:style-name="gr2" draw:text-style-name="P69" svg:width="16.117cm" svg:height="8.43cm" svg:x="0cm" svg:y="1.623cm">
+   <text:p text:style-name="P24"><draw:frame text:anchor-type="paragraph" draw:z-index="10" draw:name="Text Frame 4" draw:style-name="gr2" draw:text-style-name="P73" svg:width="16.117cm" svg:height="8.43cm" svg:x="0cm" svg:y="1.623cm">
      <draw:text-box>
-      <text:p><text:span text:style-name="T31">PROC get_chain(crd: Coord):</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">chain ← [coord]</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">current ← coord</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">to_check ← QUEUE()</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">to_check.enqueue(coord)</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">colour ← contents(coord)</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">WHILE NOT(to_check.is_empty()):</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">neighbours ← neighbours(to_check.dequeue())</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">FOR i IN neighbours:</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">IF contents(i) = colour:</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">IF NOT(i IN chain):</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">to_check.append(i)</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">chain.append(i)</text:span></text:p>
-      <text:p><text:span text:style-name="T31"><text:tab/></text:span><text:span text:style-name="T31">RETURN chain</text:span></text:p>
+      <text:p><text:span text:style-name="T37">PROC get_chain(crd: Coord):</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">chain ← [coord]</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">current ← coord</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">to_check ← QUEUE()</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">to_check.enqueue(coord)</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">colour ← contents(coord)</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">WHILE NOT(to_check.is_empty()):</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">neighbours ← neighbours(to_check.dequeue())</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">FOR i IN neighbours:</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">IF contents(i) = colour:</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">IF NOT(i IN chain):</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">to_check.append(i)</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">chain.append(i)</text:span></text:p>
+      <text:p><text:span text:style-name="T37"><text:tab/></text:span><text:span text:style-name="T37">RETURN chain</text:span></text:p>
      </draw:text-box>
-    </draw:frame><text:span text:style-name="T20">The </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T20">get_chain</text:span></text:span> <text:span text:style-name="T20">function has to return every coord</text:span><text:span text:style-name="T28">inate</text:span><text:span text:style-name="T20"> of the chain that </text:span><text:span text:style-name="T28">a given</text:span><text:span text:style-name="T20"> coord</text:span><text:span text:style-name="T28">inate</text:span><text:span text:style-name="T20"> is part of:</text:span></text:p>
+    </draw:frame><text:span text:style-name="T20">The </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T20">get_chain</text:span></text:span> <text:span text:style-name="T20">function has to return every coord</text:span><text:span text:style-name="T34">inate</text:span><text:span text:style-name="T20"> of the chain that </text:span><text:span text:style-name="T34">a given</text:span><text:span text:style-name="T20"> coord</text:span><text:span text:style-name="T34">inate</text:span><text:span text:style-name="T20"> is part of:</text:span></text:p>
    <text:p text:style-name="P27"/>
-   <text:p text:style-name="P23">In short, <text:span text:style-name="T21">it performs a </text:span><text:span text:style-name="T23">breadth-first search</text:span><text:span text:style-name="T25"> for all coordinates of the same stone colour (as if the board were a graph, with each coordinate as a node connected to its immediate neighbours). </text:span><text:span text:style-name="T26">A simple implementation of a queue was used for this, and can be seen in the program source code.</text:span></text:p>
+   <text:p text:style-name="P23">In short, <text:span text:style-name="T21">it performs a </text:span><text:span text:style-name="T23">breadth-first search</text:span><text:span text:style-name="T27"> for all coordinates of the same stone colour (as if the board were a graph, with each coordinate as a node connected to its immediate neighbours). </text:span><text:span text:style-name="T28">A simple implementation of a queue was used for this, and can be seen in the program source code.</text:span></text:p>
    <text:p text:style-name="P26"/>
-   <text:p text:style-name="P25"><draw:frame text:anchor-type="paragraph" draw:z-index="11" draw:name="Text Frame 5" draw:style-name="gr1" draw:text-style-name="P69" svg:width="16.107cm" svg:height="4.548cm" svg:x="0cm" svg:y="1.623cm">
+   <text:p text:style-name="P25"><draw:frame text:anchor-type="paragraph" draw:z-index="11" draw:name="Text Frame 5" draw:style-name="gr1" draw:text-style-name="P73" svg:width="16.107cm" svg:height="4.548cm" svg:x="0cm" svg:y="1.623cm">
      <draw:text-box>
-      <text:p><text:span text:style-name="T31">PROC </text:span><text:span text:style-name="T32">has_liberties(chain: list[Coord]):</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">FOR stone in chain:</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">neighbours ← get_neighbours(stone)</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">FOR n in neighbours:</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">IF get_contents(n) IS None:</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">RETURN True</text:span></text:p>
-      <text:p><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32"><text:tab/></text:span><text:span text:style-name="T32">RETURN False</text:span></text:p>
+      <text:p><text:span text:style-name="T37">PROC </text:span><text:span text:style-name="T38">has_liberties(chain: list[Coord]):</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">FOR stone in chain:</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">neighbours ← get_neighbours(stone)</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">FOR n in neighbours:</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">IF get_contents(n) IS None:</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">RETURN True</text:span></text:p>
+      <text:p><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38"><text:tab/></text:span><text:span text:style-name="T38">RETURN False</text:span></text:p>
      </draw:text-box>
-    </draw:frame><text:span text:style-name="T25">Finally, the chain is passed into the </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T25">has_liberties</text:span></text:span> <text:span text:style-name="T21">function to determine whether it should be captured or not:</text:span></text:p>
+    </draw:frame><text:span text:style-name="T27">Finally, the chain is passed into the </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T27">has_liberties</text:span></text:span> <text:span text:style-name="T21">function to determine whether it should be captured or not:</text:span></text:p>
    <text:p text:style-name="P25"/>
-   <text:p text:style-name="P28"><text:soft-page-break/><text:span text:style-name="T27">(</text:span><text:span text:style-name="Teletype"><text:span text:style-name="T27">None</text:span></text:span> <text:span text:style-name="T27">of course being the value for an empty point on the grid.)</text:span></text:p>
+   <text:p text:style-name="P28"><text:soft-page-break/><text:span text:style-name="T33">(</text:span><text:span text:style-name="Teletype"><text:span text:style-name="T33">None</text:span></text:span> <text:span text:style-name="T33">of course being the value for an empty point on the grid.)</text:span></text:p>
    <text:p text:style-name="P28"/>
    <text:h text:style-name="P45" text:outline-level="1">TESTING</text:h>
    <text:p text:style-name="P29"><text:span text:style-name="Internet_20_link"><text:span text:style-name="T22">https://youtu.be/7wxen6BpTIc</text:span></text:span></text:p>
@@ -10625,7 +10672,7 @@
     </table:table-row>
     <table:table-row table:style-name="TableLine94843952368240">
      <table:table-cell table:style-name="Table2.A1" office:value-type="string">
-      <text:p text:style-name="P33"><text:span text:style-name="T29">Playing </text:span>a Go problem</text:p>
+      <text:p text:style-name="P33"><text:span text:style-name="T35">Playing </text:span>a Go problem</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.A1" office:value-type="string">
       <text:p text:style-name="P37">3:54</text:p>
@@ -10648,21 +10695,25 @@
      </table:table-cell>
     </table:table-row>
    </table:table>
-   <text:h text:style-name="P40" text:outline-level="1">EVALUATION</text:h>
-   <text:h text:style-name="P43" text:outline-level="2">Implemented Requirements</text:h>
-   <text:p text:style-name="P42">All the core system objectives of the system were met – the rules of the game were correctly implemented, with relevant messages to the user when these are infringed; handicaps can be set; the user can choose from a range of problems, and can be given hints if they wish.</text:p>
-   <text:p text:style-name="P44">Of the optional objectives, only variable board sizes was accomplished, with the user indeed able to choose any size between 5x5 and 30x30. <text:span text:style-name="T33">While I could theoretically have allowed even larger boards - using various other symbols once I ran out of capital letters - board length increases game time exponentially, so anything bigger wouldn’t be in the interest of virtually </text:span><text:span text:style-name="T24">any </text:span><text:span text:style-name="T33">user.</text:span></text:p>
-   <text:h text:style-name="P58" text:outline-level="2"><text:soft-page-break/>Errors/Bugs</text:h>
-   <text:p text:style-name="P68">From my testing, I did not find any errors in either the menu or the player vs player function</text:p>
+   <text:h text:style-name="P54" text:outline-level="1"><text:span text:style-name="T41">EVALUATION</text:span></text:h>
    <text:h text:style-name="P41" text:outline-level="2">Second Interview</text:h>
    <text:p text:style-name="P38">To see how well my finished program lived up to my end-user’s needs, I conducted a follow-up interview with him:</text:p>
    <text:p text:style-name="P38"/>
-   <text:p text:style-name="P39">Does the completed program perform the tasks you desired it to?</text:p>
-   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="P39">Does the completed program perform the tasks you <text:span text:style-name="T40">wanted</text:span> it to?</text:p>
+   <text:p text:style-name="P67">It does. I can play games against other people, and can try out lots of different problems.</text:p>
    <text:p text:style-name="P39">Is it easy to use/interact with?</text:p>
-   <text:p text:style-name="Standard"/>
-   <text:p text:style-name="P39">Are there any improvements/additional features your experience/usage would benefit from?</text:p>
-   <text:p text:style-name="Standard"/>
+   <text:p text:style-name="P67">Most of the program is very easy to use, all you have to do is type. Some of my friends found this a little difficult compared to a mouse or a touch-screen though, so buttons might have been nice, since on big boards it can be a little tricky to figure out exactly what letter and number a point on the board has.</text:p>
+   <text:p text:style-name="P39"><text:soft-page-break/>Are there any improvements/additional features your experience/usage would benefit from?</text:p>
+   <text:p text:style-name="P67">Being able to save games and continue them later would be nice, since some games can drag out over a few days and you have to keep the computer on. Also, while there a lot of problems, most of them aren’t very difficult. A way to add more, or a bigger selection to start with, could be an improvement.</text:p>
+   <text:p text:style-name="P67"/>
+   <text:h text:style-name="P58" text:outline-level="2">Errors/Bugs</text:h>
+   <text:p text:style-name="P70"><text:span text:style-name="T39">From my testing, I did not find any errors in either the menu or the player vs player function – game rules behave as expected and scores are calculated correctly. However, there were occasional bugs in the Go problems, where a particular move on a problem would cause the program to crash, with an error message pointing to a failure in retrieving the response to the players action. One such example is playing </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T39">[s1]</text:span></text:span> <text:span text:style-name="T39">on the second problem. </text:span></text:p>
+   <text:p text:style-name="P68"><text:span text:style-name="T39">After investigating I found that the problem was that the .sgf file itself</text:span><text:span text:style-name="Emphasis"><text:span text:style-name="T39"> had no second move for that node</text:span></text:span><text:span text:style-name="T29">. </text:span><text:span text:style-name="T26">In my research I never came across this being a valid use of the format, so it seems that the issue is with the creators of the problems. However, I cannot be sure, and my program doesn’t have the capability to detect and avoid these issues.</text:span></text:p>
+   <text:h text:style-name="P56" text:outline-level="2">Implemented Requirements</text:h>
+   <text:p text:style-name="P71">All the core system objectives of the system were met – the rules of the game were correctly implemented, with relevant messages to the user when these are infringed; handicaps can be set; the user can choose from a range of problems; <text:s/><text:span text:style-name="T43">they </text:span>can be given hints if they wish; <text:span text:style-name="T43">comments are displayed on appropriate board states; and the user is always returned to the menu when they complete an activity.</text:span></text:p>
+   <text:p text:style-name="P69"><text:soft-page-break/><text:span text:style-name="T30">Of the optional objectives, only variable board sizes was accomplished, with the user indeed able to choose any size between 5x5 and 30x30. </text:span><text:span text:style-name="T29">While I could theoretically have allowed even larger boards - using various other symbols once I ran out of capital letters - board length increases game time exponentially, so anything bigger wouldn’t be in the interest of virtually </text:span><text:span text:style-name="T24">any </text:span><text:span text:style-name="T29">user.</text:span></text:p>
+   <text:p text:style-name="P72"><text:span text:style-name="T29">I</text:span><text:span text:style-name="T31">n terms of implementation, I’m happy with how the game logic is handled in </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T31">Board</text:span></text:span> <text:span text:style-name="T42">and </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T42">GoGame</text:span></text:span>. <text:span text:style-name="T42">The problems, less so. Firstly, my parser </text:span><text:span text:style-name="T43">makes </text:span><text:span text:style-name="T42">use </text:span><text:span text:style-name="T43">of a</text:span><text:span text:style-name="T42"> lot of nested selection to work, and could have been made much more elegant through the use of regular expressions, or even parser libraries. Secondly, the </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T42">GoProblem</text:span></text:span> <text:span text:style-name="T42">classes inheritance of </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T42">GoGame</text:span></text:span>, <text:span text:style-name="T42">although architecturally simple, is convoluted in practice, passing functions as arguments to dummy objects in order to ‘trick’ its parent class’s methods. And thirdly, passing while playing a problem used to cause an error. While I managed to </text:span><text:span text:style-name="T25">technically</text:span><text:span text:style-name="T31"> fix this through an </text:span><text:span text:style-name="Teletype"><text:span text:style-name="T31">if</text:span></text:span> <text:span text:style-name="T42">statement that detects passing, I did not actually find the root of the problem.</text:span></text:p>
+   <text:p text:style-name="P72"><text:span text:style-name="T32">From my end-users feedback, I can see that the ability to export games as .sgf files (one of the optional objectives) could have been very useful, and I do not think it would have been especially difficult to implement, provided I tidy up my parser as I’ve said above. This could also go hand-in-hand with a “Go-by-Email” system, another optional objective, although I am less sure about how easy that would have been to achieve. As for their comments around the interface, I feel that this would significantly increase the difficulty of the project, as I would have to research Python GUI libraries on top of my existing research. The cross-compatibility of the program could suffer as a result as well – the present system requirements, a command prompt and working version of Python, allow my program to run on practically any OS in active development.</text:span></text:p>
   </office:text>
  </office:body>
 </office:document>
