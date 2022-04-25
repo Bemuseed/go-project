@@ -6,7 +6,7 @@ print("# Welcome to Caleb's GO PROGRAM #")
 print("#################################\n")
 
 MENU = """
-Play a game against another human:  [P]
+Play a game:                        [P]
 Play a Go Problem:                  [G]
 Exit:                               [X]
 
